@@ -5,18 +5,18 @@ export function ValuePropSection() {
   const values = [
     {
       icon: <Lightbulb className="w-8 h-8 text-indigo-500" />,
-      title: "Product Thinking",
-      description: "Focusing on the 'why' before the 'how'. Aligning user needs with business goals to build the right solutions."
+      title: "Pensamiento de producto",
+      description: "Enfocarme en el porqué antes del cómo. Alinear necesidades de usuario con objetivos de negocio para construir las soluciones correctas."
     },
     {
       icon: <Layers className="w-8 h-8 text-indigo-500" />,
-      title: "End-to-End Design",
-      description: "From initial discovery and strategy to high-fidelity UI and prototyping. Complete process ownership."
+      title: "Diseño end-to-end",
+      description: "Desde descubrimiento y estrategia hasta UI de alta fidelidad y prototipado. Ownership completo del proceso."
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-indigo-500" />,
-      title: "Measurable Impact",
-      description: "Translating design decisions into metrics like increased engagement, reduced support tickets, and higher conversion."
+      title: "Impacto medible",
+      description: "Traducir decisiones de diseño en métricas como mayor engagement, menos tickets de soporte y mejor conversión."
     }
   ];
 
@@ -30,7 +30,7 @@ export function ValuePropSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
           >
-            Design beyond interfaces
+            Diseño más allá de interfaces
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function ValuePropSection() {
             transition={{ delay: 0.1 }}
             className="text-lg text-slate-600 dark:text-slate-400"
           >
-            I bring a strategic approach to design, ensuring that every interface serves a larger purpose.
+            Aporto un enfoque estratégico al diseño para asegurar que cada interfaz sirva a un propósito mayor.
           </motion.p>
         </div>
 

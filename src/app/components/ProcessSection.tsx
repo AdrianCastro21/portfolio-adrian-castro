@@ -5,28 +5,28 @@ export function ProcessSection() {
   const steps = [
     {
       icon: <Search className="w-6 h-6" />,
-      title: "Discovery",
-      description: "Understanding the problem space, user needs, and business objectives."
+      title: "Descubrimiento",
+      description: "Entender el problema, las necesidades de usuario y los objetivos de negocio."
     },
     {
       icon: <PenTool className="w-6 h-6" />,
-      title: "Definition",
-      description: "Synthesizing research into actionable insights and clear requirements."
+      title: "Definición",
+      description: "Sintetizar investigación en hallazgos accionables y requerimientos claros."
     },
     {
       icon: <Layout className="w-6 h-6" />,
-      title: "Design",
-      description: "Iterative prototyping, from low-fidelity wireframes to polished UI."
+      title: "Diseño",
+      description: "Prototipado iterativo, desde wireframes de baja fidelidad hasta interfaces pulidas."
     },
     {
       icon: <CheckCircle2 className="w-6 h-6" />,
-      title: "Validation",
-      description: "Testing with real users to ensure the solution hits the mark."
+      title: "Validación",
+      description: "Probar con usuarios reales para asegurar que la solución responde al objetivo."
     },
     {
       icon: <Rocket className="w-6 h-6" />,
-      title: "Delivery",
-      description: "Partnering with engineering to ensure seamless implementation."
+      title: "Entrega",
+      description: "Colaborar con ingeniería para asegurar una implementación fluida."
     }
   ];
 
@@ -44,7 +44,7 @@ export function ProcessSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            How I work
+            Cómo trabajo
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export function ProcessSection() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg max-w-2xl mx-auto"
           >
-            A structured yet flexible approach to building products that matter.
+            Un enfoque estructurado y flexible para construir productos que importan.
           </motion.p>
         </div>
 

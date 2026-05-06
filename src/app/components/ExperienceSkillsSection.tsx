@@ -6,39 +6,39 @@ export function ExperienceSkillsSection() {
     {
       role: "Senior Product Designer",
       company: "IDS",
-      period: "2021 — Present",
-      impact: "Led the design of enterprise management tools, optimizing data entry processes and establishing a unified design system that increased development velocity by 30%."
+      period: "2021 — Presente",
+      impact: "Lideré el diseño de herramientas empresariales de gestión, optimizando procesos de captura de datos y estableciendo un sistema de diseño unificado que aumentó la velocidad de desarrollo en 30%."
     },
     {
       role: "UX/UI Designer",
       company: "Keobra / Cemex",
       period: "2018 — 2021",
-      impact: "Spearheaded digital transformation initiatives, converting legacy systems into modern web applications for the construction sector."
+      impact: "Impulsé iniciativas de transformación digital, convirtiendo sistemas legacy en aplicaciones web modernas para el sector de la construcción."
     },
     {
       role: "Product Designer",
       company: "Freelance / EdTech",
       period: "2016 — 2018",
-      impact: "Partnered with early-stage startups to validate ideas, design MVPs, and launch educational platforms."
+      impact: "Colaboré con startups en etapas tempranas para validar ideas, diseñar MVPs y lanzar plataformas educativas."
     }
   ];
 
   const skillCategories = [
     {
-      title: "Product & Strategy",
-      skills: ["Product Strategy", "Design Sprints", "Agile Methodologies", "Stakeholder Management", "Roadmapping"]
+      title: "Producto y estrategia",
+      skills: ["Estrategia de producto", "Design Sprints", "Metodologías ágiles", "Gestión de stakeholders", "Roadmapping"]
     },
     {
-      title: "UX Design",
-      skills: ["User Research", "Information Architecture", "Wireframing", "Usability Testing", "Journey Mapping"]
+      title: "Diseño UX",
+      skills: ["Investigación con usuarios", "Arquitectura de información", "Wireframing", "Pruebas de usabilidad", "Journey Mapping"]
     },
     {
-      title: "UI Design",
-      skills: ["Design Systems", "Interaction Design", "Prototyping", "Visual Design", "Accessibility (a11y)"]
+      title: "Diseño UI",
+      skills: ["Sistemas de diseño", "Diseño de interacción", "Prototipado", "Diseño visual", "Accesibilidad (a11y)"]
     },
     {
-      title: "Tools & Tech",
-      skills: ["Figma", "Miro", "Webflow", "HTML/CSS", "AI Prompts (Midjourney, ChatGPT)"]
+      title: "Herramientas y tecnología",
+      skills: ["Figma", "Miro", "Webflow", "HTML/CSS", "Prompts de IA (Midjourney, ChatGPT)"]
     }
   ];
 
@@ -53,7 +53,7 @@ export function ExperienceSkillsSection() {
               <div className="p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-2xl text-indigo-600 dark:text-indigo-400">
                 <Briefcase className="w-6 h-6" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Experience</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Experiencia</h2>
             </div>
             
             <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 dark:before:via-slate-800 before:to-transparent">
@@ -90,7 +90,7 @@ export function ExperienceSkillsSection() {
               <div className="p-3 bg-rose-50 dark:bg-rose-900/30 rounded-2xl text-rose-600 dark:text-rose-400">
                 <Code className="w-6 h-6" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Expertise</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Especialidad</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

@@ -10,7 +10,7 @@ export function CaseStudyMeditate() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto max-w-5xl">
           <Link to="/" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Portfolio
+            <ArrowLeft className="w-4 h-4 mr-2" /> Volver al portafolio
           </Link>
           
           <motion.div
@@ -19,71 +19,71 @@ export function CaseStudyMeditate() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex flex-wrap gap-4 mb-6">
-              <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider rounded-full">Case Study</span>
-              <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider rounded-full">IT Consulting</span>
+              <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider rounded-full">Caso de estudio</span>
+              <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider rounded-full">Consultoría IT</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]">
               Meditate App
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-3xl leading-relaxed">
-              Transforming a fragmented, manual process into a centralized decision-making platform.
+              Transformando un proceso manual y fragmentado en una plataforma centralizada para la toma de decisiones.
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-100 dark:border-slate-800 mb-12">
               <div>
-                <p className="text-sm text-slate-500 mb-1">Role</p>
+                <p className="text-sm text-slate-500 mb-1">Rol</p>
                 <p className="font-semibold text-slate-900 dark:text-white">Product Designer</p>
                 <p className="text-sm text-slate-500">End-to-end</p>
               </div>
               <div>
-                <p className="text-sm text-slate-500 mb-1">Context</p>
-                <p className="font-semibold text-slate-900 dark:text-white">IT Consulting</p>
-                <p className="text-sm text-slate-500">Internal Tool</p>
+                <p className="text-sm text-slate-500 mb-1">Contexto</p>
+                <p className="font-semibold text-slate-900 dark:text-white">Consultoría IT</p>
+                <p className="text-sm text-slate-500">Herramienta interna</p>
               </div>
               <div>
-                <p className="text-sm text-slate-500 mb-1">Timeline</p>
-                <p className="font-semibold text-slate-900 dark:text-white">12 Weeks</p>
-                <p className="text-sm text-slate-500">Discovery to MVP</p>
+                <p className="text-sm text-slate-500 mb-1">Duración</p>
+                <p className="font-semibold text-slate-900 dark:text-white">12 semanas</p>
+                <p className="text-sm text-slate-500">Descubrimiento a MVP</p>
               </div>
               <div>
-                <p className="text-sm text-slate-500 mb-1">Platform</p>
-                <p className="font-semibold text-slate-900 dark:text-white">Web App</p>
-                <p className="text-sm text-slate-500">Desktop Focused</p>
+                <p className="text-sm text-slate-500 mb-1">Plataforma</p>
+                <p className="font-semibold text-slate-900 dark:text-white">App web</p>
+                <p className="text-sm text-slate-500">Enfoque desktop</p>
               </div>
             </div>
 
             {/* Impact Block */}
             <div className="bg-indigo-600 rounded-3xl p-8 md:p-10 text-white shadow-xl shadow-indigo-600/20">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-200 mb-6">Key Impact</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-200 mb-6">Impacto clave</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="flex flex-col gap-2">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
                     <Layers className="w-5 h-5" />
                   </div>
-                  <p className="font-semibold">Reduced</p>
-                  <p className="text-indigo-200 text-sm">system switching</p>
+                  <p className="font-semibold">Reducido</p>
+                  <p className="text-indigo-200 text-sm">el cambio entre sistemas</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
                     <BarChart3 className="w-5 h-5" />
                   </div>
-                  <p className="font-semibold">Eliminated</p>
-                  <p className="text-indigo-200 text-sm">manual tracking</p>
+                  <p className="font-semibold">Eliminado</p>
+                  <p className="text-indigo-200 text-sm">el seguimiento manual</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
                     <Users className="w-5 h-5" />
                   </div>
-                  <p className="font-semibold">Lowered</p>
-                  <p className="text-indigo-200 text-sm">cognitive load</p>
+                  <p className="font-semibold">Reducida</p>
+                  <p className="text-indigo-200 text-sm">la carga cognitiva</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
-                  <p className="font-semibold">Faster</p>
-                  <p className="text-indigo-200 text-sm">decision-making</p>
+                  <p className="font-semibold">Más rápida</p>
+                  <p className="text-indigo-200 text-sm">la toma de decisiones</p>
                 </div>
               </div>
             </div>
@@ -104,27 +104,27 @@ export function CaseStudyMeditate() {
               <div className="w-10 h-10 rounded-full bg-rose-50 dark:bg-rose-900/30 text-rose-500 flex items-center justify-center mb-6">
                 <AlertTriangle className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-lg mb-2">The Problem</h3>
+              <h3 className="font-bold text-lg mb-2">El problema</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Manual, fragmented, and unreliable process under high time pressure.
+                Proceso manual, fragmentado y poco confiable bajo alta presión de tiempo.
               </p>
             </div>
             <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800">
               <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 flex items-center justify-center mb-6">
                 <Shuffle className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-lg mb-2">The Solution</h3>
+              <h3 className="font-bold text-lg mb-2">La solución</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Centralized system with matching as decision support, not full automation.
+                Sistema centralizado con matching como apoyo para decidir, no como automatización total.
               </p>
             </div>
             <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800">
               <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-900/30 text-emerald-500 flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-lg mb-2">The Result</h3>
+              <h3 className="font-bold text-lg mb-2">El resultado</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Improved operational efficiency and significantly faster decision-making.
+                Mayor eficiencia operativa y toma de decisiones significativamente más rápida.
               </p>
             </div>
           </motion.div>
@@ -138,9 +138,9 @@ export function CaseStudyMeditate() {
             
             {/* Problem */}
             <div>
-              <h2 className="text-3xl font-bold mb-6">The Problem</h2>
+              <h2 className="text-3xl font-bold mb-6">El problema</h2>
               <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">
-                The original challenge was to integrate a matching algorithm. However, discovery revealed the real issue wasn't finding candidates, but rather surviving the chaotic environment in which decisions were made.
+                El reto original era integrar un algoritmo de matching. Sin embargo, el descubrimiento reveló que el problema real no era encontrar candidatos, sino operar dentro del entorno caótico donde se tomaban las decisiones.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -149,8 +149,8 @@ export function CaseStudyMeditate() {
                     <span className="w-2 h-2 rounded-full bg-current" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Fragmented systems</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Jumping between CRM, Excel, and internal tools.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Sistemas fragmentados</h4>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">Saltar entre CRM, Excel y herramientas internas.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
@@ -158,8 +158,8 @@ export function CaseStudyMeditate() {
                     <span className="w-2 h-2 rounded-full bg-current" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Manual workflows</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">High cognitive load tracking who is available when.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Flujos manuales</h4>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">Alta carga cognitiva para rastrear quién está disponible y cuándo.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
@@ -167,15 +167,15 @@ export function CaseStudyMeditate() {
                     <span className="w-2 h-2 rounded-full bg-current" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Outdated data</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Low data trust leading to inefficient verifications.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Datos desactualizados</h4>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">Baja confianza en los datos, lo que generaba verificaciones ineficientes.</p>
                   </div>
                 </li>
               </ul>
               
               <blockquote className="border-l-4 border-indigo-500 pl-6 py-2">
                 <p className="text-xl font-medium italic text-slate-800 dark:text-slate-200">
-                  "If you don't respond fast, you lose the project."
+                  "Si no respondes rápido, pierdes el proyecto."
                 </p>
               </blockquote>
             </div>
@@ -187,7 +187,7 @@ export function CaseStudyMeditate() {
                   <Users className="w-8 h-8" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">User Profile</h3>
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Perfil de usuario</h3>
                   <p className="text-2xl font-bold text-slate-900 dark:text-white">Resource Manager</p>
                 </div>
               </div>
@@ -195,22 +195,22 @@ export function CaseStudyMeditate() {
               <div className="space-y-6">
                 <div>
                   <h4 className="font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="w-4 h-4" /> Core Needs
+                    <CheckCircle2 className="w-4 h-4" /> Necesidades clave
                   </h4>
                   <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-2">
-                    <li>• Speed in candidate identification</li>
-                    <li>• Clarity of candidate availability</li>
-                    <li>• Reliable, up-to-date data</li>
+                    <li>• Rapidez para identificar candidatos</li>
+                    <li>• Claridad sobre disponibilidad de candidatos</li>
+                    <li>• Datos confiables y actualizados</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-semibold text-rose-600 dark:text-rose-400 flex items-center gap-2 mb-3">
-                    <AlertTriangle className="w-4 h-4" /> Frustrations
+                    <AlertTriangle className="w-4 h-4" /> Frustraciones
                   </h4>
                   <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-2">
-                    <li>• Constant system switching</li>
-                    <li>• Low trust in existing databases</li>
-                    <li>• Incomplete profile information</li>
+                    <li>• Cambio constante entre sistemas</li>
+                    <li>• Baja confianza en bases de datos existentes</li>
+                    <li>• Información incompleta en perfiles</li>
                   </ul>
                 </div>
               </div>
@@ -227,57 +227,57 @@ export function CaseStudyMeditate() {
         </div>
         <div className="container mx-auto max-w-4xl relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            "The problem wasn't finding candidates. <br className="hidden md:block"/>
-            <span className="text-indigo-200">It was enabling fast decisions with reliable information."</span>
+            "El problema no era encontrar candidatos. <br className="hidden md:block"/>
+            <span className="text-indigo-200">Era habilitar decisiones rápidas con información confiable."</span>
           </h2>
         </div>
       </section>
 
-      {/* 6. Shift in Approach & 7. Strategy */}
+      {/* 6. Cambio de enfoque & 7. Strategy */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
             <div>
-              <h2 className="text-3xl font-bold mb-8">Shift in Approach</h2>
+              <h2 className="text-3xl font-bold mb-8">Cambio de enfoque</h2>
               <div className="flex flex-col sm:flex-row gap-6">
                 <div className="flex-1 bg-slate-100 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-rose-500 font-semibold text-sm uppercase tracking-wider mb-2 block">Before</span>
-                  <p className="font-medium text-slate-900 dark:text-white">Matching algorithm integration</p>
-                  <p className="text-sm text-slate-500 mt-2">Focused purely on automating candidate selection.</p>
+                  <span className="text-rose-500 font-semibold text-sm uppercase tracking-wider mb-2 block">Antes</span>
+                  <p className="font-medium text-slate-900 dark:text-white">Integración de algoritmo de matching</p>
+                  <p className="text-sm text-slate-500 mt-2">Enfocado únicamente en automatizar la selección de candidatos.</p>
                 </div>
                 <div className="hidden sm:flex items-center text-slate-300">
                   <ArrowRight className="w-6 h-6" />
                 </div>
                 <div className="flex-1 bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800/50">
-                  <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-2 block">After</span>
-                  <p className="font-medium text-slate-900 dark:text-white">Decision-support system</p>
-                  <p className="text-sm text-indigo-700/70 dark:text-indigo-300 mt-2">Empowering recruiters with centralized, reliable context.</p>
+                  <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-2 block">Después</span>
+                  <p className="font-medium text-slate-900 dark:text-white">Sistema de apoyo a decisiones</p>
+                  <p className="text-sm text-indigo-700/70 dark:text-indigo-300 mt-2">Dar a reclutadores un contexto centralizado y confiable.</p>
                 </div>
               </div>
             </div>
             
             <div>
-              <h2 className="text-3xl font-bold mb-8">Core Strategy</h2>
+              <h2 className="text-3xl font-bold mb-8">Estrategia central</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex-shrink-0 text-indigo-500"><Layers className="w-5 h-5" /></div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Centralize information</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Bring all necessary data points into one unified view.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Centralizar información</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Reunir todos los datos necesarios en una vista unificada.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex-shrink-0 text-indigo-500"><BoxSelect className="w-5 h-5" /></div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Reduce decision space</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Surface the most relevant information first.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Reducir el espacio de decisión</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Mostrar primero la información más relevante.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex-shrink-0 text-indigo-500"><ShieldCheck className="w-5 h-5" /></div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Maintain human control</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Algorithm suggests, human decides.</p>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">Mantener el control humano</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">El algoritmo sugiere; la persona decide.</p>
                   </div>
                 </div>
               </div>
@@ -289,35 +289,35 @@ export function CaseStudyMeditate() {
       {/* 8. Product Decisions */}
       <section className="py-20 px-6 bg-slate-900 text-white">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Key Product Decisions</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Decisiones clave de producto</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-slate-800 p-8 rounded-3xl">
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">01</span></div>
-              <h3 className="text-xl font-bold mb-3">Support, not automation</h3>
+              <h3 className="text-xl font-bold mb-3">Apoyo, no automatización</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                We positioned the matching algorithm as a recommendation engine rather than an automated assigner. This kept the human in the loop for complex relationship dynamics.
+                Posicionamos el algoritmo de matching como un motor de recomendaciones, no como un asignador automático. Esto mantuvo a la persona dentro del ciclo para decisiones con dinámicas relacionales complejas.
               </p>
             </div>
             <div className="bg-slate-800 p-8 rounded-3xl">
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">02</span></div>
-              <h3 className="text-xl font-bold mb-3">Full centralization</h3>
+              <h3 className="text-xl font-bold mb-3">Centralización completa</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Instead of linking out to the CRM or HR tool, we pulled key profile data, CVs, and availability into a single modal to eliminate tool switching.
               </p>
             </div>
             <div className="bg-slate-800 p-8 rounded-3xl">
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">03</span></div>
-              <h3 className="text-xl font-bold mb-3">Structured application flow</h3>
+              <h3 className="text-xl font-bold mb-3">Flujo de aplicación estructurado</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Created a clear pipeline (Suggested → Shortlisted → Assigned) replacing ad-hoc email chains and scattered spreadsheets.
               </p>
             </div>
             <div className="bg-slate-800 p-8 rounded-3xl">
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">04</span></div>
-              <h3 className="text-xl font-bold mb-3">Data trust signals</h3>
+              <h3 className="text-xl font-bold mb-3">Señales de confianza en los datos</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Added visible timestamps ("Last updated 2h ago") to increase confidence in the data being viewed, reducing unnecessary verification calls.
+                Agregamos timestamps visibles ("Actualizado hace 2 h") para aumentar la confianza en los datos consultados y reducir llamadas de verificación innecesarias.
               </p>
             </div>
           </div>
@@ -328,7 +328,7 @@ export function CaseStudyMeditate() {
       <section className="py-24 px-6 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">The Solution</h2>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">La solución</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
               A unified platform broken down into focused modules, designed strictly around the recruiter's mental model.
             </p>
@@ -336,7 +336,7 @@ export function CaseStudyMeditate() {
 
           <div className="space-y-24">
             
-            {/* Dashboard Mockup */}
+            {/* Panel Mockup */}
             <div className="flex flex-col lg:flex-row gap-10 items-center">
               <div className="w-full lg:w-3/5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
                 {/* Abstract UI Header */}
@@ -383,14 +383,14 @@ export function CaseStudyMeditate() {
                   <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600">
                     <BarChart3 className="w-4 h-4" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Dashboard</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Panel</h3>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
                   Provides high-level metrics, actionable alerts, and a rapid overview of the current resource landscape.
                 </p>
                 <ul className="text-sm font-medium space-y-2 text-slate-700 dark:text-slate-300">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Actionable alerts on unstaffed roles</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> At-a-glance bench metrics</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Alertas accionables sobre roles sin cubrir</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Métricas de banca visibles al instante</li>
                 </ul>
               </div>
             </div>
@@ -439,15 +439,15 @@ export function CaseStudyMeditate() {
                   <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600">
                     <Users className="w-4 h-4" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Consultants & Matching</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Consultores y matching</h3>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Detailed profiles pulled from multiple systems, displaying availability, skills, and match percentage against project requirements.
+                  Perfiles detallados alimentados por múltiples sistemas, mostrando disponibilidad, habilidades y porcentaje de match contra los requerimientos del proyecto.
                 </p>
                 <ul className="text-sm font-medium space-y-2 text-slate-700 dark:text-slate-300">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Data freshness indicators</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Algorithm matching percentage</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> One-click assignment flow</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Indicadores de actualización de datos</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Porcentaje de matching del algoritmo</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Flujo de asignación en un clic</li>
                 </ul>
               </div>
             </div>
@@ -456,18 +456,18 @@ export function CaseStudyMeditate() {
         </div>
       </section>
 
-      {/* 10. System Integration Diagram */}
+      {/* 10. Integración del sistema Diagram */}
       <section className="py-24 px-6 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12">System Integration</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12">Integración del sistema</h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
             {/* External Systems */}
             <div className="flex flex-col gap-4">
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">CV Database</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Time Tracking</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">CRM / Projects</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Billing</div>
+              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Base de datos de CVs</div>
+              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Registro de tiempo</div>
+              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">CRM / Proyectos</div>
+              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Facturación</div>
             </div>
             
             {/* Connecting Arrows */}
@@ -481,12 +481,12 @@ export function CaseStudyMeditate() {
             {/* Central Platform */}
             <div className="w-48 h-48 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border-4 border-indigo-500 flex flex-col items-center justify-center shadow-xl">
               <Layers className="w-10 h-10 text-indigo-600 dark:text-indigo-400 mb-2" />
-              <span className="font-bold text-slate-900 dark:text-white text-center leading-tight">Central<br/>Platform</span>
+              <span className="font-bold text-slate-900 dark:text-white text-center leading-tight">Plataforma<br/>central</span>
             </div>
           </div>
           
           <p className="text-slate-500 max-w-lg mx-auto">
-            The platform acts as an evolutionary step towards a unified ERP, fetching data from siloed systems to create a single source of truth for decision-making.
+            La plataforma funciona como un paso evolutivo hacia un ERP unificado, tomando datos de sistemas aislados para crear una fuente única de verdad para la toma de decisiones.
           </p>
         </div>
       </section>
@@ -495,46 +495,46 @@ export function CaseStudyMeditate() {
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-2xl font-bold mb-6">Validation</h2>
+            <h2 className="text-2xl font-bold mb-6">Validación</h2>
             <div className="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">
               <ul className="space-y-3 font-medium text-slate-700 dark:text-slate-300">
                 <li className="flex items-center gap-3">
-                  <Users className="w-5 h-5 text-indigo-500" /> 5 Resource Managers tested
+                  <Users className="w-5 h-5 text-indigo-500" /> 5 Resource Managers evaluaron el prototipo
                 </li>
                 <li className="flex items-center gap-3">
-                  <BoxSelect className="w-5 h-5 text-indigo-500" /> Non-functional prototype
+                  <BoxSelect className="w-5 h-5 text-indigo-500" /> Prototipo no funcional
                 </li>
               </ul>
             </div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Goals:</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Objetivos:</h4>
             <ul className="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1 ml-4 text-sm">
-              <li>Validate value proposition of centralization.</li>
-              <li>Test the intuition behind the application flow.</li>
+              <li>Validar la propuesta de valor de la centralización.</li>
+              <li>Probar qué tan intuitivo era el flujo de la aplicación.</li>
             </ul>
           </div>
           
           <div>
-            <h2 className="text-2xl font-bold mb-6">Results</h2>
+            <h2 className="text-2xl font-bold mb-6">Resultados</h2>
             
             <div className="mb-6">
               <h4 className="font-semibold text-emerald-600 dark:text-emerald-400 mb-3 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" /> What Worked
+                <CheckCircle2 className="w-4 h-4" /> Qué funcionó
               </h4>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">High perceived value in centralization.</li>
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Improved and natural workflow.</li>
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Alerts effectively drove immediate action.</li>
+                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Alto valor percibido en la centralización.</li>
+                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Flujo mejorado y natural.</li>
+                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Las alertas impulsaron acciones inmediatas de forma efectiva.</li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-rose-600 dark:text-rose-400 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4" /> Friction Points
+                <AlertTriangle className="w-4 h-4" /> Puntos de fricción
               </h4>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Low explainability of matching score.</li>
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Confusion in some application statuses.</li>
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Low visibility of overarching open roles.</li>
+                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Baja explicabilidad del score de matching.</li>
+                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Confusión en algunos estados de aplicación.</li>
+                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Baja visibilidad general de roles abiertos.</li>
               </ul>
             </div>
           </div>
@@ -544,61 +544,61 @@ export function CaseStudyMeditate() {
       {/* 13. Impact */}
       <section className="py-24 px-6 bg-slate-900 text-white">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-center mb-12">Business Impact</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Impacto de negocio</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">↓</div>
-              <p className="font-semibold mb-1">Operational Load</p>
-              <p className="text-xs text-slate-400">Significantly reduced</p>
+              <p className="font-semibold mb-1">Carga operativa</p>
+              <p className="text-xs text-slate-400">Reducida significativamente</p>
             </div>
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">100%</div>
-              <p className="font-semibold mb-1">Manual Processes</p>
-              <p className="text-xs text-slate-400">Eliminated in workflow</p>
+              <p className="font-semibold mb-1">Procesos manuales</p>
+              <p className="text-xs text-slate-400">Eliminados del flujo</p>
             </div>
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">0</div>
-              <p className="font-semibold mb-1">Tool Switching</p>
-              <p className="text-xs text-slate-400">During decision making</p>
+              <p className="font-semibold mb-1">Cambio de herramientas</p>
+              <p className="text-xs text-slate-400">Durante la toma de decisiones</p>
             </div>
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">↑</div>
-              <p className="font-semibold mb-1">Perceived Speed</p>
-              <p className="text-xs text-slate-400">Increased drastically</p>
+              <p className="font-semibold mb-1">Velocidad percibida</p>
+              <p className="text-xs text-slate-400">Aumentó drásticamente</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 14. Next Steps & 15. Learning */}
+      {/* 14. Siguientes pasos & 15. Learning */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-4xl">
           
           <div className="bg-indigo-50 dark:bg-indigo-900/20 p-8 md:p-12 rounded-3xl border border-indigo-100 dark:border-indigo-800/50 mb-16 text-center">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-4">Key Learning</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-4">Aprendizaje clave</h3>
             <p className="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed">
-              "In complex systems, value doesn't come from automating decisions, but from structuring reliable information to enable better and faster decisions."
+              "En sistemas complejos, el valor no viene de automatizar decisiones, sino de estructurar información confiable para habilitar mejores decisiones, más rápido."
             </p>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold mb-6">Next Steps</h3>
+            <h3 className="text-2xl font-bold mb-6">Siguientes pasos</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
                 <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Improve matching explainability</span>
+                <span className="text-sm font-medium">Mejorar la explicabilidad del matching</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
                 <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Improve visibility of open roles</span>
+                <span className="text-sm font-medium">Mejorar la visibilidad de roles abiertos</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
                 <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Integrate external candidates</span>
+                <span className="text-sm font-medium">Integrar candidatos externos</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
                 <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Measure impact in production</span>
+                <span className="text-sm font-medium">Medir impacto en producción</span>
               </div>
             </div>
           </div>
@@ -611,12 +611,12 @@ export function CaseStudyMeditate() {
         <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link to="/">
             <Button variant="outline" className="gap-2">
-              <ArrowLeft className="w-4 h-4" /> Back to Portfolio
+              <ArrowLeft className="w-4 h-4" /> Volver al portafolio
             </Button>
           </Link>
           <Link to="/">
             <Button className="gap-2">
-              Next Case Study <ArrowRight className="w-4 h-4" />
+              Siguiente caso de estudio <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>

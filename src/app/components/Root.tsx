@@ -8,16 +8,16 @@ export function Root() {
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="font-bold text-xl tracking-tight">KO.</a>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-            <a href="/#work" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Work</a>
-            <a href="/#process" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Process</a>
-            <a href="/#experience" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
-            <a href="/#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+            <a href="/#work" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Proyectos</a>
+            <a href="/#process" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Proceso</a>
+            <a href="/#experience" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experiencia</a>
+            <a href="/#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contacto</a>
           </div>
           <a 
             href="/#contact" 
             className="px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium rounded-full hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors"
           >
-            Let's Talk
+            Hablemos
           </a>
         </div>
       </nav>

@@ -7,23 +7,23 @@ import imgProject3 from "figma:asset/abe65d4d8e3d3ae9eda828545ed2812f6b855410.pn
 export function CaseStudiesSection() {
   const projects = [
   {
-    title: "HR Management System",
-    description: "Transformed manual Excel processes into an automated platform...",
-    metrics: ["40% time saved", "Process automation", "Enterprise SaaS"],
+    title: "Sistema de gestión de RR. HH.",
+    description: "Transformé procesos manuales en Excel en una plataforma automatizada...",
+    metrics: ["40% de tiempo ahorrado", "Automatización de procesos", "SaaS empresarial"],
     image: imgProject1,
     href: "/case-study/staffing-system",
   },
   {
-    title: "Construction Innovation",
-    description: "Led Design Sprints to discover new business opportunities...",
-    metrics: ["5+ Design Sprints", "Stakeholder alignment", "Rapid Prototyping"],
+    title: "Innovación en construcción",
+    description: "Lideré Design Sprints para descubrir nuevas oportunidades de negocio...",
+    metrics: ["5+ Design Sprints", "Alineación de stakeholders", "Prototipado rápido"],
     image: imgProject2,
     href: "/case-study/construction-innovation",
   },
   {
-    title: "EdTech Learning Platform",
-    description: "Redesigned the core learning experience...",
-    metrics: ["+25% Engagement", "Gamification", "UX Research"],
+    title: "Plataforma de aprendizaje EdTech",
+    description: "Rediseñé la experiencia principal de aprendizaje...",
+    metrics: ["+25% de engagement", "Gamificación", "Investigación UX"],
     image: imgProject3,
     href: "/case-study/meditate-app",
   }
@@ -40,7 +40,7 @@ export function CaseStudiesSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4"
             >
-              Selected Work
+              Proyectos seleccionados
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export function CaseStudiesSection() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-600 dark:text-slate-400 max-w-xl"
             >
-              A glimpse into how I solve complex problems through design.
+              Una mirada a cómo resuelvo problemas complejos a través del diseño.
             </motion.p>
           </div>
           <motion.a 
@@ -59,7 +59,7 @@ export function CaseStudiesSection() {
             href="#" 
             className="hidden md:flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:gap-3 transition-all"
           >
-            View all projects <ArrowUpRight className="w-5 h-5" />
+            Ver todos los proyectos <ArrowUpRight className="w-5 h-5" />
           </motion.a>
         </div>
 
@@ -100,7 +100,7 @@ export function CaseStudiesSection() {
               </p>
               
               <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white mt-auto group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
-                View Case Study
+                Ver caso de estudio
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
             </motion.a>

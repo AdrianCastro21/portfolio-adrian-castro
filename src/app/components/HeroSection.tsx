@@ -20,42 +20,42 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-900 dark:text-slate-100 mb-6">
               <span className="w-2 h-2 rounded-full bg-indigo-500" />
-              Senior Product Designer based in Mexico City
+              Senior Product Designer en Ciudad de México
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
-              Designing digital products that transform{" "}
+              Diseño productos digitales que transforman{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500">
-                complex processes
+                procesos complejos
               </span>{" "}
-              into clear solutions.
+              en soluciones claras.
             </h1>
             
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
-              Product Designer specializing in UX/UI and strategy, connecting business, technology, and user needs.
+              Product Designer especializado en UX/UI y estrategia, conectando negocio, tecnología y necesidades de usuario.
             </p>
 
             <ul className="space-y-3 mb-10 text-slate-700 dark:text-slate-300">
               <li className="flex items-center gap-3">
                 <ArrowRight className="w-5 h-5 text-indigo-500" />
-                <span>Translating ambiguity into structured systems</span>
+                <span>Traducir ambigüedad en sistemas estructurados</span>
               </li>
               <li className="flex items-center gap-3">
                 <ArrowRight className="w-5 h-5 text-indigo-500" />
-                <span>Leading end-to-end design lifecycles</span>
+                <span>Liderar ciclos de diseño de inicio a fin</span>
               </li>
               <li className="flex items-center gap-3">
                 <ArrowRight className="w-5 h-5 text-indigo-500" />
-                <span>Driving business impact through user validation</span>
+                <span>Impulsar impacto de negocio mediante validación con usuarios</span>
               </li>
             </ul>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="gap-2">
-                View Case Studies <ArrowRight className="w-4 h-4" />
+                Ver casos de estudio <ArrowRight className="w-4 h-4" />
               </Button>
               <Button variant="outline" size="lg" className="gap-2">
-                Download CV <Download className="w-4 h-4" />
+                Descargar CV <Download className="w-4 h-4" />
               </Button>
             </div>
           </motion.div>
@@ -84,8 +84,8 @@ export function HeroSection() {
                   <span className="text-xl">✨</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Currently exploring</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">AI-driven design systems</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Explorando actualmente</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Sistemas de diseño impulsados por IA</p>
                 </div>
               </motion.div>
             </div>
