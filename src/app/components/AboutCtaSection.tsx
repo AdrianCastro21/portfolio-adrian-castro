@@ -1,0 +1,71 @@
+import { motion } from "motion/react";
+import { Mail, Linkedin, ArrowRight } from "lucide-react";
+import { Button } from "./Button";
+
+export function AboutCtaSection() {
+  return (
+    <section className="relative py-24 overflow-hidden bg-slate-950 text-white">
+      {/* Psychedelic gradient mesh background */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-600/30 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-rose-600/30 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute top-[20%] right-[20%] w-[50vw] h-[50vw] bg-violet-600/20 rounded-full blur-[100px] mix-blend-screen" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20 bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl text-left"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-white">About Me</h2>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Beyond the pixels, I'm passionate about the intersection of design, technology, and human behavior. 
+              I thrive on innovation and experimentation, constantly exploring how emerging technologies—especially 
+              AI-driven design tools and workflows—can augment creativity and solve complex problems at scale. 
+              When I'm not designing, I'm probably learning a new tool or mentoring emerging designers.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight">
+              Let's build something <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">meaningful.</span>
+            </h2>
+            <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
+              I'm currently open for new opportunities and exciting freelance projects. 
+              Let's connect and discuss how I can help your team.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Button size="lg" className="w-full sm:w-auto gap-2 bg-white text-slate-900 hover:bg-slate-200">
+                <Mail className="w-5 h-5" /> Get in touch
+              </Button>
+              <div className="flex items-center gap-6">
+                <a href="#" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors group">
+                  <Linkedin className="w-5 h-5" />
+                  <span>LinkedIn</span>
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+          
+        </div>
+      </div>
+      
+      {/* Footer */}
+      <div className="absolute bottom-6 w-full text-center text-slate-500 text-sm z-10">
+        <p>© {new Date().getFullYear()} • Designed with intention.</p>
+      </div>
+    </section>
+  );
+}

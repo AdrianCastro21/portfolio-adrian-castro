@@ -1,0 +1,97 @@
+import { motion } from "motion/react";
+import { Button } from "./Button";
+import { ArrowRight, Download } from "lucide-react";
+import profileImg from "figma:asset/a9fb454fb8fbd60f1e9e13b8d90af68716ddd6d1.png";
+
+export function HeroSection() {
+  return (
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      {/* Subtle psychedelic background blur */}
+      <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] mix-blend-multiply opacity-70 animate-pulse" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-rose-500/20 rounded-full blur-[120px] mix-blend-multiply opacity-70" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-900 dark:text-slate-100 mb-6">
+              <span className="w-2 h-2 rounded-full bg-indigo-500" />
+              Senior Product Designer based in Mexico City
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
+              Designing digital products that transform{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500">
+                complex processes
+              </span>{" "}
+              into clear solutions.
+            </h1>
+            
+            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
+              Product Designer specializing in UX/UI and strategy, connecting business, technology, and user needs.
+            </p>
+
+            <ul className="space-y-3 mb-10 text-slate-700 dark:text-slate-300">
+              <li className="flex items-center gap-3">
+                <ArrowRight className="w-5 h-5 text-indigo-500" />
+                <span>Translating ambiguity into structured systems</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <ArrowRight className="w-5 h-5 text-indigo-500" />
+                <span>Leading end-to-end design lifecycles</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <ArrowRight className="w-5 h-5 text-indigo-500" />
+                <span>Driving business impact through user validation</span>
+              </li>
+            </ul>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="gap-2">
+                View Case Studies <ArrowRight className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="lg" className="gap-2">
+                Download CV <Download className="w-4 h-4" />
+              </Button>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative lg:ml-auto"
+          >
+            <div className="relative w-full max-w-[480px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={profileImg} 
+                alt="Product Designer" 
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Floating element for visual interest */}
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-4"
+              >
+                <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0">
+                  <span className="text-xl">✨</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Currently exploring</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">AI-driven design systems</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
