@@ -10,7 +10,7 @@ export function ExperienceSkillsSection() {
       impact: "Lideré el proceso de diseño end-to-end para los sistemas de gestión de recursos humanos que permitió digitalizar procesos manuales basados en Excel, redujo tiempos de tarea y mejoró la eficiencia operativa mediante una colaboración cercana con líderes de tecnología y stakeholders."
     },
     {
-      role: "UX/UI Designer",
+      role: "Product Designer",
       company: "Keobra / Cemex",
       period: "2021 — 2024",
       impact: "Diseñé y evolucioné productos digitales para la industria de la construcción, liderando procesos de innovación y Design Sprints que generaron nuevas oportunidades de negocio, además de gestionar y mentorear talento UX/UI junior."

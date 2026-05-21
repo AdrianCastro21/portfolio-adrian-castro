@@ -18,6 +18,22 @@ import {
 import { Link } from "react-router";
 import { Button } from "../components/Button";
 import { SystemImageCarousel, type SystemImageSlide } from "../components/SystemImageCarousel";
+import registro from "../../assets/imgs_Florecer/01_Registro.png";
+import onboardingPt1 from "../../assets/imgs_Florecer/02_onboarding_pt1.png";
+import onboardingPt2 from "../../assets/imgs_Florecer/03_onboarding_pt2.png";
+import onboardingPt3 from "../../assets/imgs_Florecer/04_onboarding_pt3.png";
+import inicio from "../../assets/imgs_Florecer/05_inicio.png";
+import reto21DiasPresentacion from "../../assets/imgs_Florecer/06_reto_21_dias_presentacion.png";
+import catalogo21Dias from "../../assets/imgs_Florecer/07_catalogo_21_dias.png";
+import reproductorMeditaciones from "../../assets/imgs_Florecer/08_reproductor_meditaciones.png";
+import meditacionTerminada21Dias from "../../assets/imgs_Florecer/09_meditacion_terminada_21_dias.png";
+import meditacionesRutina from "../../assets/imgs_Florecer/10_meditaciones_rutina.png";
+import reproductorMeditacionRutina from "../../assets/imgs_Florecer/11_reproductor_meditacion_rutina.png";
+import logroObtenido from "../../assets/imgs_Florecer/12_logro_obtenido.png";
+import logros from "../../assets/imgs_Florecer/13_logros.png";
+import recordatorio from "../../assets/imgs_Florecer/14_recordatorio.png";
+import timerMeditacion from "../../assets/imgs_Florecer/15_timer_meditacion.png";
+import comunidad from "../../assets/imgs_Florecer/16_comunidad.png";
 
 const researchSteps = [
   "Entrevistas",
@@ -53,29 +69,145 @@ const gamification = [
 const florecerSlides: SystemImageSlide[] = [
   {
     eyebrow: "App móvil",
-    title: "Inicio y registro emocional",
-    description: "Pantalla para registrar cómo se siente el usuario, revisar el avance del reto de 21 días y acceder a meditaciones rápidas para la rutina.",
+    title: "Registro",
+    description: "Pantalla de entrada para iniciar la experiencia y preparar el recorrido de meditación.",
+    image: registro,
+    imageAlt: "Pantalla de registro de Florecer",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Onboarding 1",
+    description: "Primer momento de introducción para explicar el valor de la app y acompañar a usuarios principiantes.",
+    image: onboardingPt1,
+    imageAlt: "Primera pantalla de onboarding de Florecer",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Onboarding 2",
+    description: "Continuación del onboarding para comunicar cómo la práctica se puede integrar a la vida diaria.",
+    image: onboardingPt2,
+    imageAlt: "Segunda pantalla de onboarding de Florecer",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Onboarding 3",
+    description: "Cierre de introducción antes de llevar al usuario a la experiencia principal.",
+    image: onboardingPt3,
+    imageAlt: "Tercera pantalla de onboarding de Florecer",
+    orientation: "mobile",
+    accent: "rose",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Inicio",
+    description: "Home con registro emocional, avance del reto y accesos rápidos a meditaciones para la rutina.",
+    image: inicio,
+    imageAlt: "Pantalla de inicio de Florecer",
     orientation: "mobile",
     accent: "lime",
   },
   {
     eyebrow: "App móvil",
     title: "Reto de 21 días",
-    description: "Secuencia guiada para principiantes con sesiones breves, avance visible y contenido progresivo.",
+    description: "Presentación del reto guiado para aprender a meditar de forma progresiva.",
+    image: reto21DiasPresentacion,
+    imageAlt: "Pantalla de presentación del reto de 21 días",
     orientation: "mobile",
     accent: "indigo",
   },
   {
     eyebrow: "App móvil",
-    title: "Meditación durante la rutina",
-    description: "Accesos a meditaciones cortas pensadas para momentos cotidianos como caminar, comer, bañarse o antes de dormir.",
+    title: "Catálogo 21 días",
+    description: "Listado de meditaciones del reto con sesiones breves y avance visible.",
+    image: catalogo21Dias,
+    imageAlt: "Catálogo de meditaciones del reto de 21 días",
     orientation: "mobile",
     accent: "slate",
   },
   {
     eyebrow: "App móvil",
-    title: "Logros y minutero",
-    description: "Espacio para mostrar medallas, días seguidos y temporizador para que el usuario pase de meditación guiada a práctica autónoma.",
+    title: "Reproductor de meditación",
+    description: "Reproductor para acompañar la práctica guiada dentro del reto.",
+    image: reproductorMeditaciones,
+    imageAlt: "Reproductor de meditaciones de Florecer",
+    orientation: "mobile",
+    accent: "rose",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Meditación completada",
+    description: "Cierre de una sesión del reto para reforzar la continuidad y el progreso.",
+    image: meditacionTerminada21Dias,
+    imageAlt: "Pantalla de meditación terminada dentro del reto",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Meditaciones para la rutina",
+    description: "Accesos a meditaciones cortas para momentos cotidianos como caminar, comer, bañarse o dormir.",
+    image: meditacionesRutina,
+    imageAlt: "Pantalla de meditaciones para la rutina",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Reproductor rutina",
+    description: "Reproductor específico para meditaciones breves durante actividades diarias.",
+    image: reproductorMeditacionRutina,
+    imageAlt: "Reproductor de meditación durante la rutina",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Logro obtenido",
+    description: "Momento de recompensa que refuerza motivación y continuidad.",
+    image: logroObtenido,
+    imageAlt: "Pantalla de logro obtenido",
+    orientation: "mobile",
+    accent: "rose",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Logros",
+    description: "Vista para revisar medallas, progreso y señales de avance dentro de la práctica.",
+    image: logros,
+    imageAlt: "Pantalla de logros de Florecer",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Recordatorio",
+    description: "Configuración de recordatorios para sostener el hábito de meditación.",
+    image: recordatorio,
+    imageAlt: "Pantalla de recordatorio de meditación",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Timer de meditación",
+    description: "Temporizador para practicar de manera autónoma cuando el usuario ya tiene más confianza.",
+    image: timerMeditacion,
+    imageAlt: "Timer de meditación de Florecer",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Comunidad",
+    description: "Espacio comunitario para acompañar la práctica y conectar con otras personas.",
+    image: comunidad,
+    imageAlt: "Pantalla de comunidad de Florecer",
     orientation: "mobile",
     accent: "rose",
   },
@@ -156,6 +288,17 @@ function PhoneMockup({ title, subtitle, variant = "home" }: { title: string; sub
   );
 }
 
+function PhoneImageCard({ title, image, alt }: { title: string; image: string; alt: string }) {
+  return (
+    <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <h3 className="mb-5 text-xl font-bold text-slate-900 dark:text-white">{title}</h3>
+      <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+        <img src={image} alt={alt} className="mx-auto max-h-[620px] w-full object-contain" />
+      </div>
+    </div>
+  );
+}
+
 export function CaseStudyMeditate() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
@@ -210,7 +353,9 @@ export function CaseStudyMeditate() {
                   </div>
                 </div>
               </div>
-              <PhoneMockup title="Hola Manuel" subtitle="¿Cómo te sientes hoy?" />
+              <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-2xl dark:border-slate-800 dark:bg-slate-950">
+                <img src={inicio} alt="Pantalla de inicio de Florecer" className="w-full object-contain" />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -390,14 +535,14 @@ export function CaseStudyMeditate() {
           <div className="mb-14 text-center">
             <h2 className="mb-4 text-3xl font-bold">Diseño de interfaz</h2>
             <p className="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">
-              Dejé espacios para integrar capturas reales del sistema. Por ahora se muestran mockups de muestra con la estructura visual de la app.
+              Pantallas principales del prototipo, desde el inicio y el reto de 21 días hasta la práctica autónoma con temporizador.
             </p>
           </div>
 
           <div className="grid gap-10 lg:grid-cols-3">
-            <PhoneMockup title="Inicio" subtitle="Estado emocional y progreso" />
-            <PhoneMockup title="Reto 21 días" subtitle="Aprendizaje progresivo" variant="progress" />
-            <PhoneMockup title="Minutero" subtitle="Meditación autónoma" variant="timer" />
+            <PhoneImageCard title="Inicio" image={inicio} alt="Pantalla de inicio con estado emocional y progreso" />
+            <PhoneImageCard title="Reto 21 días" image={reto21DiasPresentacion} alt="Pantalla de reto de 21 días" />
+            <PhoneImageCard title="Minutero" image={timerMeditacion} alt="Pantalla de temporizador para meditación autónoma" />
           </div>
 
           <div className="mt-16">

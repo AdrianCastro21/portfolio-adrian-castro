@@ -20,6 +20,23 @@ import {
 import { Link } from "react-router";
 import { Button } from "../components/Button";
 import { SystemImageCarousel, type SystemImageSlide } from "../components/SystemImageCarousel";
+import paso1Modalidad from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso1_modalidad.png";
+import paso2Lugar from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso2_lugar.png";
+import paso3Proyecto from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso3_proyecto.png";
+import paso4Datos from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso4_datos.png";
+import paso5Costo from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso5_costo.png";
+import paso6RevisionPago from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso6_Revision_y_pago.png";
+import paso7AgendarCitaPt1 from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso7_Agendar_cita_pt1.png";
+import paso7AgendarCitaPt2 from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso7_Agendar_cita_pt2.png";
+import paso8RetroFinal from "../../assets/imgs_ArquiKeobra/sistema_constructores/Paso8_retro_final.png";
+import listadoAsesorias from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/01_listado_asesorias.png";
+import detalleAgendadoPresencial from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/02_detalle_agendado_presencial.png";
+import detalleAgendadoVideollamada from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/03_detalle_agendado_videollamada.png";
+import detallePagado from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/04_detalle_pagado.png";
+import detalleSolicitudAsistencia from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/05_detalle_solicitud_de_asistencia.png";
+import detalleCotizado from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/06_detalle_cotizado.png";
+import detalleEnProceso from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/07_detalle_en_proceso.png";
+import detalleFinalizada from "../../assets/imgs_ArquiKeobra/sistema_arquitectos/08_ detalle_finalizada.png";
 
 const autoconstructorRequirements = [
   "Elegir si requiere el servicio en línea o presencial.",
@@ -67,27 +84,80 @@ const keobraAutoconstructorSlides: SystemImageSlide[] = [
     eyebrow: "Flujo móvil",
     title: "Selección de modalidad",
     description: "Pantallas para elegir si la asesoría será presencial o en línea y definir el tipo de inmueble.",
+    image: paso1Modalidad,
+    imageAlt: "Paso 1 selección de modalidad",
     orientation: "mobile",
     accent: "indigo",
   },
   {
     eyebrow: "Flujo móvil",
-    title: "Datos del proyecto",
-    description: "Captura guiada del motivo de la asesoría, ubicación, contacto y detalles necesarios para cotizar.",
+    title: "Lugar de la asesoría",
+    description: "Definición del tipo de inmueble y contexto donde se realizará la asesoría.",
+    image: paso2Lugar,
+    imageAlt: "Paso 2 lugar de la asesoría",
     orientation: "mobile",
     accent: "rose",
   },
   {
     eyebrow: "Flujo móvil",
-    title: "Cotización y pago",
-    description: "Resumen de costo, aplicación de cupones, pago en línea y confirmación de la solicitud.",
+    title: "Datos del proyecto",
+    description: "Captura guiada del motivo de la asesoría y detalles necesarios para entender el caso.",
+    image: paso3Proyecto,
+    imageAlt: "Paso 3 datos del proyecto",
     orientation: "mobile",
     accent: "slate",
   },
   {
     eyebrow: "Flujo móvil",
-    title: "Agenda de visita",
-    description: "Selección de fecha, hora y visualización de la asesoría confirmada con el arquitecto asignado.",
+    title: "Datos de contacto",
+    description: "Registro de la información del solicitante para continuar con la cotización y agenda.",
+    image: paso4Datos,
+    imageAlt: "Paso 4 datos de contacto",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Costo del servicio",
+    description: "Presentación del costo de la asesoría de acuerdo con las características del proyecto.",
+    image: paso5Costo,
+    imageAlt: "Paso 5 costo del servicio",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Revisión y pago",
+    description: "Resumen previo al pago para revisar datos, costo y confirmar la contratación.",
+    image: paso6RevisionPago,
+    imageAlt: "Paso 6 revisión y pago",
+    orientation: "mobile",
+    accent: "rose",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Agendar cita",
+    description: "Selección de fecha y hora para programar la asesoría con el especialista asignado.",
+    image: paso7AgendarCitaPt1,
+    imageAlt: "Paso 7 agenda de cita parte 1",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Confirmación de cita",
+    description: "Visualización de la cita agendada y detalles finales de la asesoría.",
+    image: paso7AgendarCitaPt2,
+    imageAlt: "Paso 7 agenda de cita parte 2",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Cierre del flujo",
+    description: "Pantalla final de retroalimentación y cierre después de completar el proceso.",
+    image: paso8RetroFinal,
+    imageAlt: "Paso 8 retroalimentación final",
     orientation: "mobile",
     accent: "lime",
   },
@@ -98,27 +168,71 @@ const keobraArchitectSlides: SystemImageSlide[] = [
     eyebrow: "Tablero web",
     title: "Listado de asesorías",
     description: "Vista para revisar solicitudes, estatus, modalidad, fechas y acciones rápidas del arquitecto.",
+    image: listadoAsesorias,
+    imageAlt: "Listado de asesorías del sistema de arquitectos",
     orientation: "desktop",
     accent: "indigo",
   },
   {
     eyebrow: "Tablero web",
-    title: "Detalle de solicitud",
-    description: "Información del cliente, ubicación, pago, motivo de la asesoría y estado operativo de la visita.",
+    title: "Detalle agendado presencial",
+    description: "Detalle de una asesoría presencial agendada con información del usuario, ubicación y datos operativos.",
+    image: detalleAgendadoPresencial,
+    imageAlt: "Detalle de asesoría agendada presencial",
     orientation: "desktop",
     accent: "slate",
   },
   {
     eyebrow: "Tablero web",
-    title: "Formulario de asistencia",
-    description: "Registro de evidencia, validaciones técnicas, conclusiones y firma para generar el reporte de asesoría.",
+    title: "Detalle agendado por videollamada",
+    description: "Detalle de solicitud para modalidad en línea con información necesaria para dar seguimiento.",
+    image: detalleAgendadoVideollamada,
+    imageAlt: "Detalle de asesoría agendada por videollamada",
     orientation: "desktop",
     accent: "rose",
   },
   {
     eyebrow: "Tablero web",
-    title: "Cupones y administración",
-    description: "Espacio para gestionar descuentos, revisar solicitudes y mantener el control operativo del servicio.",
+    title: "Detalle pagado",
+    description: "Estado pagado de la solicitud con información del cliente, modalidad y acciones disponibles.",
+    image: detallePagado,
+    imageAlt: "Detalle de asesoría pagada",
+    orientation: "desktop",
+    accent: "lime",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Solicitud de asistencia",
+    description: "Formulario para registrar la asistencia, documentar información técnica y preparar el reporte.",
+    image: detalleSolicitudAsistencia,
+    imageAlt: "Formulario de solicitud de asistencia",
+    orientation: "desktop",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Detalle cotizado",
+    description: "Vista de una asesoría cotizada antes de completar pago y agenda.",
+    image: detalleCotizado,
+    imageAlt: "Detalle de asesoría cotizada",
+    orientation: "desktop",
+    accent: "slate",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Detalle en proceso",
+    description: "Estado operativo para dar seguimiento a una asesoría que ya se encuentra en atención.",
+    image: detalleEnProceso,
+    imageAlt: "Detalle de asesoría en proceso",
+    orientation: "desktop",
+    accent: "rose",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Detalle finalizado",
+    description: "Cierre de la asesoría con información final y evidencia registrada.",
+    image: detalleFinalizada,
+    imageAlt: "Detalle de asesoría finalizada",
     orientation: "desktop",
     accent: "lime",
   },
@@ -382,17 +496,11 @@ export function CaseStudyKeobra() {
 
           <SystemImageCarousel slides={keobraAutoconstructorSlides} />
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <h3 className="mb-4 text-2xl font-bold">Pago y agendación</h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                El flujo permite calcular el costo, seleccionar forma de pago, agendar fecha y hora, y confirmar la visita con los datos del asesor técnico asignado.
-              </p>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <PhonePlaceholder title="Pago" step="5" />
-              <PhonePlaceholder title="Cita confirmada" step="6" />
-            </div>
+          <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-slate-100 bg-slate-50 p-8 text-center dark:border-slate-800 dark:bg-slate-950">
+            <h3 className="mb-4 text-2xl font-bold">Pago y agendación</h3>
+            <p className="text-slate-600 dark:text-slate-400">
+              El flujo permite calcular el costo, seleccionar forma de pago, agendar fecha y hora, y confirmar la visita con los datos del asesor técnico asignado.
+            </p>
           </div>
         </div>
       </section>
@@ -414,8 +522,6 @@ export function CaseStudyKeobra() {
               ))}
             </div>
           </div>
-
-          <DesktopPlaceholder title="Listado de asesorías" description="Board con solicitudes, filtros, estatus y acciones rápidas." />
         </div>
       </section>
 
@@ -430,8 +536,6 @@ export function CaseStudyKeobra() {
 
           <div className="space-y-10">
             <SystemImageCarousel slides={keobraArchitectSlides} />
-            <DesktopPlaceholder title="Detalle de solicitud" description="Información del solicitante, modalidad, datos del pago, ubicación y acciones disponibles." />
-            <DesktopPlaceholder title="Formulario de asistencia" description="Registro de ubicación, fotografías, validaciones técnicas, conclusiones y firma del cliente." />
           </div>
         </div>
       </section>
