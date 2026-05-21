@@ -47,7 +47,13 @@ export function AboutCtaSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="lg" className="w-full sm:w-auto gap-2 bg-white text-slate-900 hover:bg-slate-200">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto gap-2 bg-white text-slate-900 hover:bg-slate-200"
+                onClick={() => {
+                  window.location.href = "mailto:acastro.didg@gmail.com";
+                }}
+              >
                 <Mail className="w-5 h-5" /> Contáctame
               </Button>
               <div className="flex items-center gap-6">
