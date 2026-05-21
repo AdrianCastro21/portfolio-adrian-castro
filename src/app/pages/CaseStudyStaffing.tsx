@@ -1,7 +1,124 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, Users, Briefcase, BoxSelect, CheckCircle2, AlertTriangle, Layers, Shuffle, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, Users, BoxSelect, CheckCircle2, AlertTriangle, Layers, Shuffle, ShieldCheck } from "lucide-react";
 import { Link } from "react-router";
 import { Button } from "../components/Button";
+import { SystemImageCarousel, type SystemImageSlide } from "../components/SystemImageCarousel";
+import staffingPanel from "../../assets/imgs_staffing/staffing_panel.png";
+import pantallaBench from "../../assets/imgs_staffing/Pantalla Bench.png";
+import pantallaPerfiles from "../../assets/imgs_staffing/Pantalla Perfiles.png";
+import pantallaConsultores from "../../assets/imgs_staffing/Pantalla_consultores.png";
+import pantallaDetalleConsultor from "../../assets/imgs_staffing/Pantalla_detalle_consultor.png";
+import pantallaDetalleProyecto from "../../assets/imgs_staffing/Pantalla_detalle_proyecto .png";
+import pantallaEquipoAsignado from "../../assets/imgs_staffing/Pantalla_equipo_asignado.png";
+import pantallaPipelineStaffing from "../../assets/imgs_staffing/Pantalla_pipeline_staffing.png";
+import pantallaPipelineStaffingAvance from "../../assets/imgs_staffing/Pantalla_pipeline_staffing_avanceflujo.png";
+import pantallaProyectos from "../../assets/imgs_staffing/Pantalla_proyectos.png";
+import pantallaRecomendadosBench from "../../assets/imgs_staffing/Pantalla_recomendados_Bench.png";
+import flujoPostulacion from "../../assets/Flujo_Postulacion.png";
+import modeloDecisionUsuario from "../../assets/Modelo_decision_usuario.png";
+
+// Para usar capturas reales, importa tus imagenes desde src/assets y agrega image: nombreImportado en cada slide.
+const staffingSlides: SystemImageSlide[] = [
+  {
+    eyebrow: "App web",
+    title: "Panel operativo",
+    description: "Vista de alto nivel con métricas, alertas accionables y panorama rápido de roles, banca y capacidad disponible.",
+    image: staffingPanel,
+    imageAlt: "Panel operativo del sistema de staffing",
+    orientation: "desktop",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App web",
+    title: "Consultores",
+    description: "Listado de consultores con información operativa para revisar disponibilidad, estado y datos clave desde una misma vista.",
+    image: pantallaConsultores,
+    imageAlt: "Pantalla de consultores del sistema de staffing",
+    orientation: "desktop",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App web",
+    title: "Detalle de consultor",
+    description: "Perfil detallado para consultar habilidades, experiencia, disponibilidad y señales relevantes antes de proponer una asignación.",
+    image: pantallaDetalleConsultor,
+    imageAlt: "Pantalla de detalle de consultor",
+    orientation: "desktop",
+    accent: "rose",
+  },
+  {
+    eyebrow: "App web",
+    title: "Proyectos",
+    description: "Vista para revisar proyectos activos, requerimientos abiertos y necesidades de staffing asociadas.",
+    image: pantallaProyectos,
+    imageAlt: "Pantalla de proyectos",
+    orientation: "desktop",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App web",
+    title: "Detalle de proyecto",
+    description: "Espacio para entender el contexto del proyecto, requerimientos del cliente y perfiles necesarios para cubrir la demanda.",
+    image: pantallaDetalleProyecto,
+    imageAlt: "Pantalla de detalle de proyecto",
+    orientation: "desktop",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App web",
+    title: "Perfiles",
+    description: "Exploración de perfiles y atributos relevantes para comparar opciones antes de iniciar una postulación.",
+    image: pantallaPerfiles,
+    imageAlt: "Pantalla de perfiles",
+    orientation: "desktop",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App web",
+    title: "Pipeline de staffing",
+    description: "Flujo estructurado para dar seguimiento a candidatos, avances y estados de postulación.",
+    image: pantallaPipelineStaffing,
+    imageAlt: "Pantalla de pipeline de staffing",
+    orientation: "desktop",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App web",
+    title: "Avance del flujo",
+    description: "Vista de avance para entender en qué punto del proceso se encuentra cada candidato o asignación.",
+    image: pantallaPipelineStaffingAvance,
+    imageAlt: "Pantalla de avance del flujo de staffing",
+    orientation: "desktop",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App web",
+    title: "Equipo asignado",
+    description: "Pantalla para revisar el equipo asignado y confirmar la composición final del proyecto.",
+    image: pantallaEquipoAsignado,
+    imageAlt: "Pantalla de equipo asignado",
+    orientation: "desktop",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App web",
+    title: "Bench",
+    description: "Vista enfocada en consultores disponibles para reducir pérdidas por bench y facilitar nuevas asignaciones.",
+    image: pantallaBench,
+    imageAlt: "Pantalla bench",
+    orientation: "desktop",
+    accent: "rose",
+  },
+  {
+    eyebrow: "App web",
+    title: "Recomendados Bench",
+    description: "Candidatos recomendados desde bench para acelerar la respuesta al cliente y aumentar asignaciones internas.",
+    image: pantallaRecomendadosBench,
+    imageAlt: "Pantalla de recomendados bench",
+    orientation: "desktop",
+    accent: "slate",
+  },
+];
 
 export function CaseStudyStaffing() {
   return (
@@ -9,8 +126,8 @@ export function CaseStudyStaffing() {
       {/* 1. Hero Section */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto max-w-5xl">
-          <Link to="/" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Volver al portafolio
+          <Link to="/#work" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 mb-8 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Volver a proyectos
           </Link>
           
           <motion.div
@@ -40,9 +157,9 @@ export function CaseStudyStaffing() {
                 <p className="text-sm text-slate-500">Herramienta interna</p>
               </div>
               <div>
-                <p className="text-sm text-slate-500 mb-1">Duración</p>
-                <p className="font-semibold text-slate-900 dark:text-white">12 semanas</p>
-                <p className="text-sm text-slate-500">Descubrimiento a MVP</p>
+                <p className="text-sm text-slate-500 mb-1">Usuarios</p>
+                <p className="font-semibold text-slate-900 dark:text-white">Resource Managers</p>
+                <p className="text-sm text-slate-500">Proceso de Staffing</p>
               </div>
               <div>
                 <p className="text-sm text-slate-500 mb-1">Plataforma</p>
@@ -138,7 +255,7 @@ export function CaseStudyStaffing() {
             <div>
               <h2 className="text-3xl font-bold mb-6">El problema</h2>
               <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">
-                El reto original era integrar un algoritmo de matching. Sin embargo, el descubrimiento reveló que el problema real no era encontrar candidatos, sino operar dentro del entorno caótico donde se tomaban las decisiones.
+                El reto original era integrar un algoritmo de matching que permita relacionar proyectos nuevos con consultores disponibles. Sin embargo, después de entrevistas con usuarios y stakeholder se reveló que el problema real no era encontrar candidatos, sino operar dentro de un entorno con múltiples sistemas donde se tomaban las decisiones.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -173,7 +290,7 @@ export function CaseStudyStaffing() {
               
               <blockquote className="border-l-4 border-indigo-500 pl-6 py-2">
                 <p className="text-xl font-medium italic text-slate-800 dark:text-slate-200">
-                  "Si no respondes rápido, pierdes el proyecto."
+                  "La primera consultora en enviar buenos candidatos tiene más probabilidad de ganar el proyecto."
                 </p>
               </blockquote>
             </div>
@@ -199,6 +316,7 @@ export function CaseStudyStaffing() {
                     <li>• Rapidez para identificar candidatos</li>
                     <li>• Claridad sobre disponibilidad de candidatos</li>
                     <li>• Datos confiables y actualizados</li>
+                    <li>• Tener la información en una misma fuente</li>
                   </ul>
                 </div>
                 <div>
@@ -209,11 +327,81 @@ export function CaseStudyStaffing() {
                     <li>• Cambio constante entre sistemas</li>
                     <li>• Baja confianza en bases de datos existentes</li>
                     <li>• Información incompleta en perfiles</li>
+                    <li>• No coincide oferta contra demanda</li>                    
                   </ul>
                 </div>
               </div>
             </div>
             
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div className="container mx-auto max-w-5xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-4">Contexto del flujo</p>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Cómo se evaluaba y decidía una postulación</h2>
+            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+              Estos modelos ayudaron a entender el recorrido operativo y los criterios que influyen en la decisión del Resource Manager antes de proponer una solución.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
+              <h3 className="mb-5 text-2xl font-bold text-slate-900 dark:text-white">Flujo de postulación</h3>
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+                <img
+                  src={flujoPostulacion}
+                  alt="Flujo de postulación"
+                  className="w-full object-contain"
+                />
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
+              <h3 className="mb-5 text-2xl font-bold text-slate-900 dark:text-white">Modelo de decisión del usuario</h3>
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+                <img
+                  src={modeloDecisionUsuario}
+                  alt="Modelo de decisión del usuario"
+                  className="w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-slate-50 dark:bg-slate-950">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-4">Contexto de negocio</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-slate-900 dark:text-white">Objetivos del negocio</h2>
+            </div>
+
+            <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900 md:p-10">
+              <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-8">
+                Antes de diseñar la solución, fue clave entender qué indicadores quería mover el negocio. El producto no solo debía ordenar el proceso de staffing: también debía ayudar a responder más rápido, aprovechar mejor el talento interno y reducir costos operativos.
+              </p>
+              <ul className="grid gap-4 text-slate-700 dark:text-slate-300">
+                {[
+                  "Reducir tiempo de staffing",
+                  "Aumentar las asignaciones de consultores internos",
+                  "Reducir rotación de personal",
+                  "Reducir contrataciones externas",
+                  "Disminuir pérdidas por bench",
+                  "Incrementar velocidad de respuesta a clientes",
+                  "Aumentar el valor de los consultores al conservarlos en la misma industria y fortalecer su especialización",
+                ].map((objective) => (
+                  <li key={objective} className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 text-base leading-relaxed dark:border-slate-800 dark:bg-slate-950">
+                    <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-indigo-500" />
+                    <span className="font-medium">{objective}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -268,7 +456,7 @@ export function CaseStudyStaffing() {
                   <div className="mt-1 flex-shrink-0 text-indigo-500"><BoxSelect className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white">Reducir el espacio de decisión</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Mostrar primero la información más relevante.</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Mostrar primero la información más relevante con el matching.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -301,14 +489,13 @@ export function CaseStudyStaffing() {
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">02</span></div>
               <h3 className="text-xl font-bold mb-3">Centralización completa</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Instead of linking out to the CRM or HR tool, we pulled key profile data, CVs, and availability into a single modal to eliminate tool switching.
-              </p>
+                  En lugar de redirigir al CRM o a la herramienta de RR. HH., integramos los datos clave del perfil, CVs y disponibilidad en un solo modal para eliminar el cambio constante entre herramientas.              </p>
             </div>
             <div className="bg-slate-800 p-8 rounded-3xl">
               <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">03</span></div>
               <h3 className="text-xl font-bold mb-3">Flujo de aplicación estructurado</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Created a clear pipeline (Suggested → Shortlisted → Assigned) replacing ad-hoc email chains and scattered spreadsheets.
+                Creamos un pipeline claro —Sugerido → Postulado → Asignado— que reemplazó seguimiento en hojas de cálculo dispersas.             
               </p>
             </div>
             <div className="bg-slate-800 p-8 rounded-3xl">
@@ -328,53 +515,19 @@ export function CaseStudyStaffing() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">La solución</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              A unified platform broken down into focused modules, designed strictly around the recruiter's mental model.
-            </p>
+            Una plataforma unificada, dividida en módulos enfocados y diseñada alrededor del modelo mental del reclutador, así como las necesidades específicas del negocio.            </p>
+          </div>
+
+          <div className="mb-20">
+            <SystemImageCarousel slides={staffingSlides} />
           </div>
 
           <div className="space-y-24">
             
             {/* Panel Mockup */}
             <div className="flex flex-col lg:flex-row gap-10 items-center">
-              <div className="w-full lg:w-3/5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
-                {/* Abstract UI Header */}
-                <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-4 gap-4">
-                  <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-rose-400"/><div className="w-3 h-3 rounded-full bg-amber-400"/><div className="w-3 h-3 rounded-full bg-emerald-400"/></div>
-                  <div className="h-6 w-48 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                </div>
-                {/* Abstract UI Body */}
-                <div className="p-6">
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-10 h-8 bg-indigo-500/20 dark:bg-indigo-500/40 rounded"></div>
-                    </div>
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-12 h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    </div>
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    </div>
-                  </div>
-                  <div className="flex gap-6">
-                    <div className="w-2/3 h-48 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-4">
-                       <div className="w-32 h-4 bg-slate-200 dark:bg-slate-700 rounded mb-4"></div>
-                       <div className="space-y-3">
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                       </div>
-                    </div>
-                    <div className="w-1/3 h-48 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-4">
-                       <div className="w-24 h-4 bg-slate-200 dark:bg-slate-700 rounded mb-4"></div>
-                       <div className="w-full h-32 rounded-full bg-slate-200 dark:bg-slate-700/50 flex items-center justify-center">
-                         <div className="w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-800"></div>
-                       </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="w-full lg:w-3/5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900">
+                <img src={staffingPanel} alt="Panel operativo del sistema de staffing" className="w-full object-contain" />
               </div>
               <div className="w-full lg:w-2/5">
                 <div className="flex items-center gap-3 mb-4">
@@ -384,7 +537,7 @@ export function CaseStudyStaffing() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Panel</h3>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Provides high-level metrics, actionable alerts, and a rapid overview of the current resource landscape.
+                  Proporciona métricas generales, alertas accionables y una vista rápida del panorama actual de recursos.
                 </p>
                 <ul className="text-sm font-medium space-y-2 text-slate-700 dark:text-slate-300">
                   <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Alertas accionables sobre roles sin cubrir</li>
@@ -395,42 +548,8 @@ export function CaseStudyStaffing() {
 
             {/* Consultants & Projects Mockup */}
             <div className="flex flex-col lg:flex-row-reverse gap-10 items-center">
-              <div className="w-full lg:w-3/5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
-                {/* Abstract UI Header */}
-                <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-4 gap-4">
-                  <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-700"/><div className="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-700"/></div>
-                  <div className="h-6 w-32 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                </div>
-                {/* Abstract UI Body */}
-                <div className="flex h-72">
-                  <div className="w-1/3 border-r border-slate-100 dark:border-slate-800 p-4 space-y-3">
-                    <div className="w-full h-10 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
-                    <div className="w-full h-10 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/50 rounded-lg relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-1 before:bg-indigo-500 before:rounded-r"></div>
-                    <div className="w-full h-10 bg-slate-50 dark:bg-slate-800/50 rounded-lg"></div>
-                    <div className="w-full h-10 bg-slate-50 dark:bg-slate-800/50 rounded-lg"></div>
-                  </div>
-                  <div className="w-2/3 p-6 flex flex-col gap-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                        <div className="space-y-2 mt-2">
-                          <div className="w-32 h-5 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                          <div className="w-24 h-3 bg-slate-100 dark:bg-slate-800 rounded"></div>
-                        </div>
-                      </div>
-                      <div className="w-20 h-8 bg-indigo-500 rounded-md"></div>
-                    </div>
-                    <div className="flex gap-2 mt-2">
-                      <div className="w-16 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                      <div className="w-20 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                      <div className="w-14 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                    </div>
-                    <div className="w-full h-px bg-slate-100 dark:bg-slate-800 my-2"></div>
-                    <div className="w-3/4 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    <div className="w-5/6 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    <div className="w-1/2 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                  </div>
-                </div>
+              <div className="w-full lg:w-3/5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900">
+                <img src={pantallaDetalleConsultor} alt="Detalle de consultor con disponibilidad, habilidades y datos de matching" className="w-full object-contain" />
               </div>
               <div className="w-full lg:w-2/5">
                 <div className="flex items-center gap-3 mb-4">
@@ -465,7 +584,7 @@ export function CaseStudyStaffing() {
               <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Base de datos de CVs</div>
               <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Registro de tiempo</div>
               <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">CRM / Proyectos</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Facturación</div>
+              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Motor búsqueda consultores</div>
             </div>
             
             {/* Connecting Arrows */}
@@ -607,14 +726,14 @@ export function CaseStudyStaffing() {
       {/* 16. Navigation */}
       <section className="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-6">
-          <Link to="/">
+          <Link to="/#work">
             <Button variant="outline" className="gap-2">
-              <ArrowLeft className="w-4 h-4" /> Volver al portafolio
+              <ArrowLeft className="w-4 h-4" /> Volver a proyectos
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="/case-study/construction-innovation">
             <Button className="gap-2">
-              Siguiente caso de estudio <ArrowRight className="w-4 h-4" />
+              Siguiente caso: Arqui KeObra <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>

@@ -26,8 +26,8 @@ export function AboutCtaSection() {
               Más allá de los pixeles, me apasiona la intersección entre diseño, tecnología y comportamiento humano.
               Disfruto la innovación y la experimentación, explorando constantemente cómo las tecnologías emergentes,
               especialmente las herramientas y flujos de diseño impulsados por IA, pueden ampliar la creatividad y resolver
-              problemas complejos a escala. Cuando no estoy diseñando, probablemente estoy aprendiendo una nueva herramienta
-              o acompañando a diseñadores emergentes.
+              problemas complejos. Cuando no estoy diseñando, probablemente estoy aprendiendo una nueva herramienta
+              o haciendo algo de música.
             </p>
           </motion.div>
 
@@ -39,11 +39,11 @@ export function AboutCtaSection() {
           >
             <h2 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight">
               Construyamos algo <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">con significado.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">grandioso juntos.</span>
             </h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
               Actualmente estoy abierto a nuevas oportunidades y proyectos freelance interesantes.
-              Conectemos para conversar cómo puedo ayudar a tu equipo.
+              Conectemos para conversar cómo puedo aportar a tu equipo.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -51,7 +51,12 @@ export function AboutCtaSection() {
                 <Mail className="w-5 h-5" /> Contáctame
               </Button>
               <div className="flex items-center gap-6">
-                <a href="#" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors group">
+                <a
+                  href="https://www.linkedin.com/in/adriancastropach"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors group"
+                >
                   <Linkedin className="w-5 h-5" />
                   <span>LinkedIn</span>
                   <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -65,7 +70,7 @@ export function AboutCtaSection() {
       
       {/* Footer */}
       <div className="absolute bottom-6 w-full text-center text-slate-500 text-sm z-10">
-        <p>© {new Date().getFullYear()} • Diseñado con intención.</p>
+        <p>© {new Date().getFullYear()} • Diseñado con intención. 🙂</p>
       </div>
     </section>
   );

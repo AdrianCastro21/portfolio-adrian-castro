@@ -4,29 +4,29 @@ import { Briefcase, Code } from "lucide-react";
 export function ExperienceSkillsSection() {
   const experiences = [
     {
-      role: "Senior Product Designer",
+      role: "Product Designer",
       company: "IDS",
-      period: "2021 — Presente",
-      impact: "Lideré el diseño de herramientas empresariales de gestión, optimizando procesos de captura de datos y estableciendo un sistema de diseño unificado que aumentó la velocidad de desarrollo en 30%."
+      period: "2024 — 2026",
+      impact: "Lideré el proceso de diseño end-to-end para los sistemas de gestión de recursos humanos que permitió digitalizar procesos manuales basados en Excel, redujo tiempos de tarea y mejoró la eficiencia operativa mediante una colaboración cercana con líderes de tecnología y stakeholders."
     },
     {
       role: "UX/UI Designer",
       company: "Keobra / Cemex",
-      period: "2018 — 2021",
-      impact: "Impulsé iniciativas de transformación digital, convirtiendo sistemas legacy en aplicaciones web modernas para el sector de la construcción."
+      period: "2021 — 2024",
+      impact: "Diseñé y evolucioné productos digitales para la industria de la construcción, liderando procesos de innovación y Design Sprints que generaron nuevas oportunidades de negocio, además de gestionar y mentorear talento UX/UI junior."
     },
     {
-      role: "Product Designer",
-      company: "Freelance / EdTech",
-      period: "2016 — 2018",
-      impact: "Colaboré con startups en etapas tempranas para validar ideas, diseñar MVPs y lanzar plataformas educativas."
+      role: "Multimedia Designer",
+      company: "kls",
+      period: "2021",
+      impact: "Diseñé productos digitales educativos centrados en la experiencia de usuario, colaborando con diseñadores instruccionales para crear experiencias de aprendizaje intuitivas mediante diseño de interacción, animación e ilustración."
     }
   ];
 
   const skillCategories = [
     {
       title: "Producto y estrategia",
-      skills: ["Estrategia de producto", "Design Sprints", "Metodologías ágiles", "Gestión de stakeholders", "Roadmapping"]
+      skills: ["Estrategia de producto", "Design Sprints", "Metodologías ágiles", "KPI oriented", "Roadmapping"]
     },
     {
       title: "Diseño UX",
@@ -34,11 +34,11 @@ export function ExperienceSkillsSection() {
     },
     {
       title: "Diseño UI",
-      skills: ["Sistemas de diseño", "Diseño de interacción", "Prototipado", "Diseño visual", "Accesibilidad (a11y)"]
+      skills: ["Sistemas de diseño", "Diseño de interacción", "Prototipado", "Diseño visual", "Accesibilidad"]
     },
     {
       title: "Herramientas y tecnología",
-      skills: ["Figma", "Miro", "Webflow", "HTML/CSS", "Prompts de IA (Midjourney, ChatGPT)"]
+      skills: ["Figma", "Miro", "HTML/CSS", "Prompts de IA (Figma Make, ChatGPT, Codex)"]
     }
   ];
 

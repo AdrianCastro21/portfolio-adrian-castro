@@ -1,12 +1,14 @@
 import { Outlet } from "react-router";
+import { ScrollToTop } from "./ScrollToTop";
 
 export function Root() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 font-sans antialiased text-slate-900 dark:text-slate-50 selection:bg-indigo-500/30">
+      <ScrollToTop />
       {/* Top Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="/" className="font-bold text-xl tracking-tight">KO.</a>
+          <a href="/" className="font-bold text-xl tracking-tight">Adrián Castro</a>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
             <a href="/#work" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Proyectos</a>
             <a href="/#process" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Proceso</a>

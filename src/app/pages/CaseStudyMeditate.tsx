@@ -1,627 +1,476 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, Users, Briefcase, BoxSelect, CheckCircle2, AlertTriangle, Layers, Shuffle, ShieldCheck } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowLeft,
+  ArrowRight,
+  Award,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  HeartPulse,
+  Leaf,
+  MessageCircle,
+  Search,
+  Sparkles,
+  Trophy,
+  Users,
+} from "lucide-react";
 import { Link } from "react-router";
 import { Button } from "../components/Button";
+import { SystemImageCarousel, type SystemImageSlide } from "../components/SystemImageCarousel";
+
+const researchSteps = [
+  "Entrevistas",
+  "User persona",
+  "Mapa de empatía",
+  "Definición",
+  "Ideación",
+  "Gamificación",
+  "Arquitectura del sitio",
+  "Prototipado",
+  "Prueba de concepto",
+];
+
+const siteArchitecture = [
+  "Inicio",
+  "Reto de 21 días",
+  "Meditar",
+  "Logros",
+  "Minutero",
+  "Comunidad",
+];
+
+const gamification = [
+  "Reto flor de loto de 21 días",
+  "Sistema de medallas",
+  "Registro de sentimientos",
+  "Contador de días seguidos",
+  "Recordatorios",
+  "Grupos de personas que meditan",
+];
+
+// Para usar capturas reales, importa tus imagenes desde src/assets y agrega image: nombreImportado en cada slide.
+const florecerSlides: SystemImageSlide[] = [
+  {
+    eyebrow: "App móvil",
+    title: "Inicio y registro emocional",
+    description: "Pantalla para registrar cómo se siente el usuario, revisar el avance del reto de 21 días y acceder a meditaciones rápidas para la rutina.",
+    orientation: "mobile",
+    accent: "lime",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Reto de 21 días",
+    description: "Secuencia guiada para principiantes con sesiones breves, avance visible y contenido progresivo.",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Meditación durante la rutina",
+    description: "Accesos a meditaciones cortas pensadas para momentos cotidianos como caminar, comer, bañarse o antes de dormir.",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "App móvil",
+    title: "Logros y minutero",
+    description: "Espacio para mostrar medallas, días seguidos y temporizador para que el usuario pase de meditación guiada a práctica autónoma.",
+    orientation: "mobile",
+    accent: "rose",
+  },
+];
+
+function PhoneMockup({ title, subtitle, variant = "home" }: { title: string; subtitle: string; variant?: "home" | "progress" | "timer" }) {
+  return (
+    <div className="mx-auto w-full max-w-[290px] rounded-[2rem] border-4 border-slate-900 bg-white p-4 shadow-2xl dark:border-slate-700 dark:bg-slate-950">
+      <div className="mx-auto mb-5 h-5 w-24 rounded-full bg-slate-900 dark:bg-slate-700" />
+      <div className="mb-5">
+        <p className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
+        <h4 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">{title}</h4>
+      </div>
+      {variant === "home" && (
+        <div className="space-y-5">
+          <div className="flex justify-between">
+            {["", "", "", "", ""].map((_, index) => (
+              <span key={index} className="h-10 w-10 rounded-full bg-amber-100 text-center text-xl leading-10">
+                {index < 2 ? "•" : index === 3 ? "–" : ""}
+              </span>
+            ))}
+          </div>
+          <div className="rounded-2xl bg-[#d6d600] p-5 text-slate-900">
+            <p className="text-sm">Tu progreso</p>
+            <p className="mt-1 text-3xl font-bold">0/21</p>
+            <div className="mt-5 rounded-xl bg-white p-3">
+              <p className="text-sm font-bold">Día 1 ¿Qué es la meditación?</p>
+              <p className="text-xs text-slate-500">5 min</p>
+            </div>
+          </div>
+          <div>
+            <p className="mb-3 text-sm font-bold text-slate-900 dark:text-white">Meditar durante tu rutina</p>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="h-20 rounded-xl bg-slate-100 dark:bg-slate-800" />
+              <div className="h-20 rounded-xl bg-indigo-50 dark:bg-indigo-950" />
+            </div>
+          </div>
+        </div>
+      )}
+      {variant === "progress" && (
+        <div className="space-y-4">
+          {[1, 2, 3].map((day) => (
+            <div key={day} className="rounded-2xl border border-slate-100 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-sm font-bold text-slate-900 dark:text-white">Día {day}</span>
+                <CheckCircle2 className="h-5 w-5 text-[#9ca000]" />
+              </div>
+              <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800">
+                <div className="h-2 w-2/3 rounded-full bg-[#d6d600]" />
+              </div>
+            </div>
+          ))}
+          <div className="rounded-2xl bg-slate-900 p-4 text-white dark:bg-slate-800">
+            <Trophy className="mb-2 h-5 w-5 text-[#d6d600]" />
+            <p className="text-sm font-semibold">Medalla desbloqueada</p>
+          </div>
+        </div>
+      )}
+      {variant === "timer" && (
+        <div className="space-y-5 text-center">
+          <div className="mx-auto flex h-40 w-40 items-center justify-center rounded-full border-[12px] border-[#d6d600]">
+            <div>
+              <p className="text-4xl font-bold text-slate-900 dark:text-white">05:00</p>
+              <p className="text-xs text-slate-500">Respira</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {[3, 5, 10].map((minute) => (
+              <span key={minute} className="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold dark:bg-slate-800">
+                {minute} min
+              </span>
+            ))}
+          </div>
+          <div className="rounded-xl bg-[#d6d600] py-3 text-sm font-bold text-slate-900">Iniciar</div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function CaseStudyMeditate() {
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
-      {/* 1. Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
+      <section className="border-b border-slate-200 bg-white px-6 pb-16 pt-24 dark:border-slate-800 dark:bg-slate-900 md:pb-20 md:pt-32">
         <div className="container mx-auto max-w-5xl">
-          <Link to="/" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Volver al portafolio
+          <Link to="/#work" className="mb-8 inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Volver a proyectos
           </Link>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex flex-wrap gap-4 mb-6">
-              <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider rounded-full">Caso de estudio</span>
-              <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider rounded-full">Consultoría IT</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]">
-              Meditate App
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-3xl leading-relaxed">
-              Transformando un proceso manual y fragmentado en una plataforma centralizada para la toma de decisiones.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-100 dark:border-slate-800 mb-12">
-              <div>
-                <p className="text-sm text-slate-500 mb-1">Rol</p>
-                <p className="font-semibold text-slate-900 dark:text-white">Product Designer</p>
-                <p className="text-sm text-slate-500">End-to-end</p>
-              </div>
-              <div>
-                <p className="text-sm text-slate-500 mb-1">Contexto</p>
-                <p className="font-semibold text-slate-900 dark:text-white">Consultoría IT</p>
-                <p className="text-sm text-slate-500">Herramienta interna</p>
-              </div>
-              <div>
-                <p className="text-sm text-slate-500 mb-1">Duración</p>
-                <p className="font-semibold text-slate-900 dark:text-white">12 semanas</p>
-                <p className="text-sm text-slate-500">Descubrimiento a MVP</p>
-              </div>
-              <div>
-                <p className="text-sm text-slate-500 mb-1">Plataforma</p>
-                <p className="font-semibold text-slate-900 dark:text-white">App web</p>
-                <p className="text-sm text-slate-500">Enfoque desktop</p>
-              </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div className="mb-6 flex flex-wrap gap-4">
+              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                Caso de estudio
+              </span>
+              <span className="rounded-full bg-lime-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-lime-700 dark:bg-lime-900/30 dark:text-lime-300">
+                UX / UI
+              </span>
+              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+                App de meditación
+              </span>
             </div>
 
-            {/* Impact Block */}
-            <div className="bg-indigo-600 rounded-3xl p-8 md:p-10 text-white shadow-xl shadow-indigo-600/20">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-200 mb-6">Impacto clave</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="flex flex-col gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
-                    <Layers className="w-5 h-5" />
-                  </div>
-                  <p className="font-semibold">Reducido</p>
-                  <p className="text-indigo-200 text-sm">el cambio entre sistemas</p>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
-                    <BarChart3 className="w-5 h-5" />
-                  </div>
-                  <p className="font-semibold">Eliminado</p>
-                  <p className="text-indigo-200 text-sm">el seguimiento manual</p>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <p className="font-semibold">Reducida</p>
-                  <p className="text-indigo-200 text-sm">la carga cognitiva</p>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <p className="font-semibold">Más rápida</p>
-                  <p className="text-indigo-200 text-sm">la toma de decisiones</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 2. TL;DR */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800">
-              <div className="w-10 h-10 rounded-full bg-rose-50 dark:bg-rose-900/30 text-rose-500 flex items-center justify-center mb-6">
-                <AlertTriangle className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-lg mb-2">El problema</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Proceso manual, fragmentado y poco confiable bajo alta presión de tiempo.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800">
-              <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 flex items-center justify-center mb-6">
-                <Shuffle className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-lg mb-2">La solución</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Sistema centralizado con matching como apoyo para decidir, no como automatización total.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800">
-              <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-900/30 text-emerald-500 flex items-center justify-center mb-6">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-lg mb-2">El resultado</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                Mayor eficiencia operativa y toma de decisiones significativamente más rápida.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3. Problem Section & 4. User Section */}
-      <section className="py-20 px-6 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
-            {/* Problem */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6">El problema</h2>
-              <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">
-                El reto original era integrar un algoritmo de matching. Sin embargo, el descubrimiento reveló que el problema real no era encontrar candidatos, sino operar dentro del entorno caótico donde se tomaban las decisiones.
-              </p>
-              
-              <ul className="space-y-4 mb-10">
-                <li className="flex gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center flex-shrink-0 text-rose-500">
-                    <span className="w-2 h-2 rounded-full bg-current" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Sistemas fragmentados</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Saltar entre CRM, Excel y herramientas internas.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center flex-shrink-0 text-rose-500">
-                    <span className="w-2 h-2 rounded-full bg-current" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Flujos manuales</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Alta carga cognitiva para rastrear quién está disponible y cuándo.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center flex-shrink-0 text-rose-500">
-                    <span className="w-2 h-2 rounded-full bg-current" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Datos desactualizados</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Baja confianza en los datos, lo que generaba verificaciones ineficientes.</p>
-                  </div>
-                </li>
-              </ul>
-              
-              <blockquote className="border-l-4 border-indigo-500 pl-6 py-2">
-                <p className="text-xl font-medium italic text-slate-800 dark:text-slate-200">
-                  "Si no respondes rápido, pierdes el proyecto."
+            <div className="grid gap-12 lg:grid-cols-[1fr_340px] lg:items-center">
+              <div>
+                <h1 className="mb-6 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-slate-900 dark:text-white md:text-6xl lg:text-7xl">
+                  Florecer
+                </h1>
+                <p className="mb-10 max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-slate-400 md:text-2xl">
+                  App de meditación diseñada para guiar a principiantes e integrar la práctica en momentos cotidianos de su rutina.
                 </p>
-              </blockquote>
-            </div>
 
-            {/* User */}
-            <div className="bg-slate-50 dark:bg-slate-950 p-8 md:p-10 rounded-3xl border border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center text-indigo-600">
-                  <Users className="w-8 h-8" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Perfil de usuario</h3>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">Resource Manager</p>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="w-4 h-4" /> Necesidades clave
-                  </h4>
-                  <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-2">
-                    <li>• Rapidez para identificar candidatos</li>
-                    <li>• Claridad sobre disponibilidad de candidatos</li>
-                    <li>• Datos confiables y actualizados</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-rose-600 dark:text-rose-400 flex items-center gap-2 mb-3">
-                    <AlertTriangle className="w-4 h-4" /> Frustraciones
-                  </h4>
-                  <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-2">
-                    <li>• Cambio constante entre sistemas</li>
-                    <li>• Baja confianza en bases de datos existentes</li>
-                    <li>• Información incompleta en perfiles</li>
-                  </ul>
+                <div className="grid grid-cols-2 gap-8 border-y border-slate-100 py-8 dark:border-slate-800 md:grid-cols-4">
+                  <div>
+                    <p className="mb-1 text-sm text-slate-500">Proyecto</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">Florecer</p>
+                    <p className="text-sm text-slate-500">Meditación</p>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-sm text-slate-500">Tareas</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">UX / UI</p>
+                    <p className="text-sm text-slate-500">Research y prototipo</p>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-sm text-slate-500">Diseñador</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">Adrián Castro</p>
+                    <p className="text-sm text-slate-500">End-to-end</p>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-sm text-slate-500">Año</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">2023</p>
+                    <p className="text-sm text-slate-500">App móvil</p>
+                  </div>
                 </div>
               </div>
+              <PhoneMockup title="Hola Manuel" subtitle="¿Cómo te sientes hoy?" />
             </div>
-            
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20">
+        <div className="container mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+          <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <AlertTriangle className="mb-5 h-8 w-8 text-rose-500" />
+            <h3 className="mb-3 text-lg font-bold">El problema</h3>
+            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Las personas principiantes quieren meditar, pero la falta de guía clara provoca confusión, frustración y abandono de la práctica.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <Leaf className="mb-5 h-8 w-8 text-lime-600" />
+            <h3 className="mb-3 text-lg font-bold">La solución</h3>
+            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Una experiencia guiada que enseña a meditar en 21 días y permite practicar durante acciones cotidianas.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <Sparkles className="mb-5 h-8 w-8 text-indigo-500" />
+            <h3 className="mb-3 text-lg font-bold">El aprendizaje</h3>
+            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              La motivación más fuerte no fue la gamificación, sino hacer que meditar se sintiera accesible dentro de la vida diaria.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 5. Key Insight */}
-      <section className="py-24 px-6 bg-indigo-600 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-white rounded-full blur-[100px] -translate-y-1/2" />
+      <section className="border-y border-slate-200 bg-white px-6 py-20 dark:border-slate-800 dark:bg-slate-900">
+        <div className="container mx-auto grid max-w-5xl gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <h2 className="mb-6 text-3xl font-bold">Investigación</h2>
+            <p className="mb-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+              Se entrevistaron 9 personas con distintos niveles de experiencia en meditación: 3 principiantes, 3 intermedios y 3 avanzados. El objetivo fue entender cómo se inicia la práctica, cómo se sostiene y qué impide integrarla a la rutina.
+            </p>
+            <div className="rounded-3xl bg-slate-50 p-6 dark:bg-slate-950">
+              <MessageCircle className="mb-4 h-6 w-6 text-indigo-500" />
+              <p className="text-lg font-medium italic text-slate-800 dark:text-slate-200">
+                "A veces no tengo tiempo de meditar porque hago muchas cosas durante el día."
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {researchSteps.map((step) => (
+              <div key={step} className="rounded-2xl bg-[#d6d600] px-5 py-4 text-sm font-bold text-slate-900">
+                {step}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            "El problema no era encontrar candidatos. <br className="hidden md:block"/>
-            <span className="text-indigo-200">Era habilitar decisiones rápidas con información confiable."</span>
+      </section>
+
+      <section className="px-6 py-20">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[360px_1fr] lg:items-start">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-lime-100 text-lime-700 dark:bg-lime-900/40 dark:text-lime-300">
+                <Users className="h-10 w-10" />
+              </div>
+              <h2 className="mb-2 text-3xl font-bold">Manuel</h2>
+              <p className="mb-6 text-slate-500">32 años · Ciudad de México</p>
+              <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+                Trabaja algunos días desde casa, vive de forma independiente y busca balance entre responsabilidades, salud mental y vida personal.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-3xl bg-white p-7 dark:bg-slate-900">
+                <h3 className="mb-4 text-xl font-bold">Metas</h3>
+                <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                  <li>Conseguir balance entre responsabilidades y vida personal.</li>
+                  <li>Combatir el estrés.</li>
+                  <li>Reducir ansiedad y depresión.</li>
+                  <li>Tener momentos de paz y descanso.</li>
+                </ul>
+              </div>
+              <div className="rounded-3xl bg-white p-7 dark:bg-slate-900">
+                <h3 className="mb-4 text-xl font-bold">Frustraciones</h3>
+                <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                  <li>Sus responsabilidades le dejan poco tiempo libre.</li>
+                  <li>Le cuesta mantener momentos de tranquilidad.</li>
+                  <li>Ha intentado meditar, pero no sabe por dónde empezar.</li>
+                </ul>
+              </div>
+              <div className="rounded-3xl bg-slate-900 p-7 text-white md:col-span-2">
+                <h3 className="mb-4 text-xl font-bold text-[#d6d600]">Insight</h3>
+                <p className="text-lg leading-relaxed">
+                  Manuel quiere meditar porque se lo recomendaron para tratar ansiedad y depresión, pero necesita guía, estructura y una forma realista de incorporar la práctica a su vida diaria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 px-6 py-24 text-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <p className="mb-6 text-sm font-semibold uppercase tracking-wider text-[#d6d600]">Pregunta guía</p>
+          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+            ¿Cómo podríamos guiar a Manuel para que integre la práctica de la meditación en su vida?
           </h2>
         </div>
       </section>
 
-      {/* 6. Cambio de enfoque & 7. Strategy */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-20">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Cambio de enfoque</h2>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <div className="flex-1 bg-slate-100 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-rose-500 font-semibold text-sm uppercase tracking-wider mb-2 block">Antes</span>
-                  <p className="font-medium text-slate-900 dark:text-white">Integración de algoritmo de matching</p>
-                  <p className="text-sm text-slate-500 mt-2">Enfocado únicamente en automatizar la selección de candidatos.</p>
-                </div>
-                <div className="hidden sm:flex items-center text-slate-300">
-                  <ArrowRight className="w-6 h-6" />
-                </div>
-                <div className="flex-1 bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800/50">
-                  <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-2 block">Después</span>
-                  <p className="font-medium text-slate-900 dark:text-white">Sistema de apoyo a decisiones</p>
-                  <p className="text-sm text-indigo-700/70 dark:text-indigo-300 mt-2">Dar a reclutadores un contexto centralizado y confiable.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Estrategia central</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 flex-shrink-0 text-indigo-500"><Layers className="w-5 h-5" /></div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Centralizar información</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Reunir todos los datos necesarios en una vista unificada.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 flex-shrink-0 text-indigo-500"><BoxSelect className="w-5 h-5" /></div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Reducir el espacio de decisión</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Mostrar primero la información más relevante.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 flex-shrink-0 text-indigo-500"><ShieldCheck className="w-5 h-5" /></div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Mantener el control humano</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">El algoritmo sugiere; la persona decide.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Product Decisions */}
-      <section className="py-20 px-6 bg-slate-900 text-white">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Decisiones clave de producto</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-slate-800 p-8 rounded-3xl">
-              <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">01</span></div>
-              <h3 className="text-xl font-bold mb-3">Apoyo, no automatización</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Posicionamos el algoritmo de matching como un motor de recomendaciones, no como un asignador automático. Esto mantuvo a la persona dentro del ciclo para decisiones con dinámicas relacionales complejas.
-              </p>
-            </div>
-            <div className="bg-slate-800 p-8 rounded-3xl">
-              <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">02</span></div>
-              <h3 className="text-xl font-bold mb-3">Centralización completa</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Instead of linking out to the CRM or HR tool, we pulled key profile data, CVs, and availability into a single modal to eliminate tool switching.
-              </p>
-            </div>
-            <div className="bg-slate-800 p-8 rounded-3xl">
-              <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">03</span></div>
-              <h3 className="text-xl font-bold mb-3">Flujo de aplicación estructurado</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Created a clear pipeline (Suggested → Shortlisted → Assigned) replacing ad-hoc email chains and scattered spreadsheets.
-              </p>
-            </div>
-            <div className="bg-slate-800 p-8 rounded-3xl">
-              <div className="text-indigo-400 mb-4"><span className="text-4xl font-bold opacity-30">04</span></div>
-              <h3 className="text-xl font-bold mb-3">Señales de confianza en los datos</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Agregamos timestamps visibles ("Actualizado hace 2 h") para aumentar la confianza en los datos consultados y reducir llamadas de verificación innecesarias.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. Solution Section (UI Mockups) */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-950">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">La solución</h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              A unified platform broken down into focused modules, designed strictly around the recruiter's mental model.
+          <div className="mb-12 max-w-3xl">
+            <h2 className="mb-5 text-3xl font-bold">Definición de la solución</h2>
+            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+              Florecer combina aprendizaje progresivo, meditaciones para momentos cotidianos y dinámicas de gamificación que apoyan la formación del hábito sin convertirse en el centro de la experiencia.
             </p>
           </div>
 
-          <div className="space-y-24">
-            
-            {/* Panel Mockup */}
-            <div className="flex flex-col lg:flex-row gap-10 items-center">
-              <div className="w-full lg:w-3/5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
-                {/* Abstract UI Header */}
-                <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-4 gap-4">
-                  <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-rose-400"/><div className="w-3 h-3 rounded-full bg-amber-400"/><div className="w-3 h-3 rounded-full bg-emerald-400"/></div>
-                  <div className="h-6 w-48 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                </div>
-                {/* Abstract UI Body */}
-                <div className="p-6">
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-10 h-8 bg-indigo-500/20 dark:bg-indigo-500/40 rounded"></div>
-                    </div>
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-12 h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    </div>
-                    <div className="h-24 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 flex flex-col justify-between">
-                      <div className="w-16 h-4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                      <div className="w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    </div>
-                  </div>
-                  <div className="flex gap-6">
-                    <div className="w-2/3 h-48 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-4">
-                       <div className="w-32 h-4 bg-slate-200 dark:bg-slate-700 rounded mb-4"></div>
-                       <div className="space-y-3">
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                         <div className="w-full h-8 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                       </div>
-                    </div>
-                    <div className="w-1/3 h-48 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-4">
-                       <div className="w-24 h-4 bg-slate-200 dark:bg-slate-700 rounded mb-4"></div>
-                       <div className="w-full h-32 rounded-full bg-slate-200 dark:bg-slate-700/50 flex items-center justify-center">
-                         <div className="w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-800"></div>
-                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-2/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600">
-                    <BarChart3 className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Panel</h3>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Provides high-level metrics, actionable alerts, and a rapid overview of the current resource landscape.
-                </p>
-                <ul className="text-sm font-medium space-y-2 text-slate-700 dark:text-slate-300">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Alertas accionables sobre roles sin cubrir</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Métricas de banca visibles al instante</li>
-                </ul>
-              </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-3xl bg-white p-7 dark:bg-slate-900">
+              <CalendarDays className="mb-4 h-7 w-7 text-lime-600" />
+              <h3 className="mb-3 text-xl font-bold">Reto de 21 días</h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                Un recorrido guiado para aprender conceptos básicos y construir una práctica inicial.
+              </p>
             </div>
-
-            {/* Consultants & Projects Mockup */}
-            <div className="flex flex-col lg:flex-row-reverse gap-10 items-center">
-              <div className="w-full lg:w-3/5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
-                {/* Abstract UI Header */}
-                <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-4 gap-4">
-                  <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-700"/><div className="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-700"/></div>
-                  <div className="h-6 w-32 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                </div>
-                {/* Abstract UI Body */}
-                <div className="flex h-72">
-                  <div className="w-1/3 border-r border-slate-100 dark:border-slate-800 p-4 space-y-3">
-                    <div className="w-full h-10 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
-                    <div className="w-full h-10 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/50 rounded-lg relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-1 before:bg-indigo-500 before:rounded-r"></div>
-                    <div className="w-full h-10 bg-slate-50 dark:bg-slate-800/50 rounded-lg"></div>
-                    <div className="w-full h-10 bg-slate-50 dark:bg-slate-800/50 rounded-lg"></div>
-                  </div>
-                  <div className="w-2/3 p-6 flex flex-col gap-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                        <div className="space-y-2 mt-2">
-                          <div className="w-32 h-5 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                          <div className="w-24 h-3 bg-slate-100 dark:bg-slate-800 rounded"></div>
-                        </div>
-                      </div>
-                      <div className="w-20 h-8 bg-indigo-500 rounded-md"></div>
-                    </div>
-                    <div className="flex gap-2 mt-2">
-                      <div className="w-16 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                      <div className="w-20 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                      <div className="w-14 h-6 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-                    </div>
-                    <div className="w-full h-px bg-slate-100 dark:bg-slate-800 my-2"></div>
-                    <div className="w-3/4 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    <div className="w-5/6 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                    <div className="w-1/2 h-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-2/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600">
-                    <Users className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Consultores y matching</h3>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Perfiles detallados alimentados por múltiples sistemas, mostrando disponibilidad, habilidades y porcentaje de match contra los requerimientos del proyecto.
-                </p>
-                <ul className="text-sm font-medium space-y-2 text-slate-700 dark:text-slate-300">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Indicadores de actualización de datos</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Porcentaje de matching del algoritmo</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Flujo de asignación en un clic</li>
-                </ul>
-              </div>
+            <div className="rounded-3xl bg-white p-7 dark:bg-slate-900">
+              <Clock3 className="mb-4 h-7 w-7 text-indigo-500" />
+              <h3 className="mb-3 text-xl font-bold">Meditación en rutina</h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                Sesiones cortas para practicar al despertar, caminar, comer, bañarse o antes de dormir.
+              </p>
             </div>
-
+            <div className="rounded-3xl bg-white p-7 dark:bg-slate-900">
+              <Award className="mb-4 h-7 w-7 text-amber-500" />
+              <h3 className="mb-3 text-xl font-bold">Logros y progreso</h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                Medallas, días seguidos y registro emocional como señales de avance y motivación.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 10. Integración del sistema Diagram */}
-      <section className="py-24 px-6 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12">Integración del sistema</h2>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-            {/* External Systems */}
-            <div className="flex flex-col gap-4">
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Base de datos de CVs</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Registro de tiempo</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">CRM / Proyectos</div>
-              <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium">Facturación</div>
-            </div>
-            
-            {/* Connecting Arrows */}
-            <div className="flex md:flex-col gap-2 items-center text-slate-300 dark:text-slate-600 rotate-90 md:rotate-0">
-              <ArrowRight className="w-6 h-6" />
-              <ArrowRight className="w-6 h-6" />
-              <ArrowRight className="w-6 h-6" />
-              <ArrowRight className="w-6 h-6" />
-            </div>
-
-            {/* Central Platform */}
-            <div className="w-48 h-48 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border-4 border-indigo-500 flex flex-col items-center justify-center shadow-xl">
-              <Layers className="w-10 h-10 text-indigo-600 dark:text-indigo-400 mb-2" />
-              <span className="font-bold text-slate-900 dark:text-white text-center leading-tight">Plataforma<br/>central</span>
+      <section className="border-y border-slate-200 bg-white px-6 py-20 dark:border-slate-800 dark:bg-slate-900">
+        <div className="container mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-3xl font-bold">Arquitectura del producto</h2>
+            <p className="mb-8 leading-relaxed text-slate-600 dark:text-slate-400">
+              La estructura prioriza el estado emocional y el reto de aprendizaje, dejando las meditaciones por rutina como accesos rápidos.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {siteArchitecture.map((item) => (
+                <div key={item} className="rounded-2xl border border-slate-200 px-5 py-4 text-sm font-bold dark:border-slate-800">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
-          
-          <p className="text-slate-500 max-w-lg mx-auto">
-            La plataforma funciona como un paso evolutivo hacia un ERP unificado, tomando datos de sistemas aislados para crear una fuente única de verdad para la toma de decisiones.
+          <div>
+            <h2 className="mb-6 text-3xl font-bold">Gamificación</h2>
+            <p className="mb-8 leading-relaxed text-slate-600 dark:text-slate-400">
+              Las dinámicas se diseñaron como apoyo para motivar continuidad, especialmente alrededor del reto de 21 días y el registro de progreso.
+            </p>
+            <div className="space-y-3">
+              {gamification.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl bg-[#d6d600] px-5 py-4 text-sm font-bold text-slate-900">
+                  <Trophy className="h-4 w-4" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24">
+        <div className="container mx-auto max-w-5xl">
+          <div className="mb-14 text-center">
+            <h2 className="mb-4 text-3xl font-bold">Diseño de interfaz</h2>
+            <p className="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">
+              Dejé espacios para integrar capturas reales del sistema. Por ahora se muestran mockups de muestra con la estructura visual de la app.
+            </p>
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-3">
+            <PhoneMockup title="Inicio" subtitle="Estado emocional y progreso" />
+            <PhoneMockup title="Reto 21 días" subtitle="Aprendizaje progresivo" variant="progress" />
+            <PhoneMockup title="Minutero" subtitle="Meditación autónoma" variant="timer" />
+          </div>
+
+          <div className="mt-16">
+            <SystemImageCarousel slides={florecerSlides} />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white px-6 py-20 dark:border-slate-800 dark:bg-slate-900">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <h2 className="mb-6 text-3xl font-bold">Validación</h2>
+              <div className="rounded-3xl bg-slate-50 p-7 dark:bg-slate-950">
+                <Search className="mb-4 h-7 w-7 text-indigo-500" />
+                <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+                  La prueba de concepto ayudó a identificar qué elementos generaban motivación y qué partes requerían mayor exploración.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-5">
+              <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-6 dark:border-emerald-900/50 dark:bg-emerald-950/30">
+                <HeartPulse className="mb-3 h-6 w-6 text-emerald-600" />
+                <h3 className="mb-2 font-bold">Lo más valioso</h3>
+                <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  Los usuarios expresaron fuerte interés en meditar durante momentos cotidianos porque resuelve el obstáculo principal: la falta de tiempo.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-lime-100 bg-lime-50 p-6 dark:border-lime-900/50 dark:bg-lime-950/30">
+                <CheckCircle2 className="mb-3 h-6 w-6 text-lime-700" />
+                <h3 className="mb-2 font-bold">Qué motivó</h3>
+                <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  Hubo preferencia por elementos relacionados con el reto de 21 días, las meditaciones guiadas y la transición de principiante a práctica autónoma.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-amber-100 bg-amber-50 p-6 dark:border-amber-900/50 dark:bg-amber-950/30">
+                <AlertTriangle className="mb-3 h-6 w-6 text-amber-600" />
+                <h3 className="mb-2 font-bold">A explorar</h3>
+                <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  El personaje virtual no mostró una conexión significativa con los usuarios, por lo que se recomienda evaluar mejor su rol dentro de la experiencia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 px-6 py-24 text-white">
+        <div className="container mx-auto max-w-4xl">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-wider text-[#d6d600]">Conclusión</p>
+          <h2 className="mb-8 text-3xl font-bold leading-tight md:text-5xl">
+            Florecer funciona mejor cuando convierte la meditación en una práctica accesible, guiada y compatible con la vida diaria.
+          </h2>
+          <p className="text-lg leading-relaxed text-slate-300">
+            Como siguiente paso, se sugiere probar la integración de meditaciones durante un periodo más prolongado para medir la adopción real del hábito y evaluar con más detalle la transición de principiante a avanzado.
           </p>
         </div>
       </section>
 
-      {/* 11. Validation & 12. Results */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Validación</h2>
-            <div className="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">
-              <ul className="space-y-3 font-medium text-slate-700 dark:text-slate-300">
-                <li className="flex items-center gap-3">
-                  <Users className="w-5 h-5 text-indigo-500" /> 5 Resource Managers evaluaron el prototipo
-                </li>
-                <li className="flex items-center gap-3">
-                  <BoxSelect className="w-5 h-5 text-indigo-500" /> Prototipo no funcional
-                </li>
-              </ul>
-            </div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Objetivos:</h4>
-            <ul className="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1 ml-4 text-sm">
-              <li>Validar la propuesta de valor de la centralización.</li>
-              <li>Probar qué tan intuitivo era el flujo de la aplicación.</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Resultados</h2>
-            
-            <div className="mb-6">
-              <h4 className="font-semibold text-emerald-600 dark:text-emerald-400 mb-3 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" /> Qué funcionó
-              </h4>
-              <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Alto valor percibido en la centralización.</li>
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Flujo mejorado y natural.</li>
-                <li className="pl-4 border-l-2 border-emerald-100 dark:border-emerald-900/50">Las alertas impulsaron acciones inmediatas de forma efectiva.</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-rose-600 dark:text-rose-400 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4" /> Puntos de fricción
-              </h4>
-              <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Baja explicabilidad del score de matching.</li>
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Confusión en algunos estados de aplicación.</li>
-                <li className="pl-4 border-l-2 border-rose-100 dark:border-rose-900/50">Baja visibilidad general de roles abiertos.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 13. Impact */}
-      <section className="py-24 px-6 bg-slate-900 text-white">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-center mb-12">Impacto de negocio</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">↓</div>
-              <p className="font-semibold mb-1">Carga operativa</p>
-              <p className="text-xs text-slate-400">Reducida significativamente</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">100%</div>
-              <p className="font-semibold mb-1">Procesos manuales</p>
-              <p className="text-xs text-slate-400">Eliminados del flujo</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">0</div>
-              <p className="font-semibold mb-1">Cambio de herramientas</p>
-              <p className="text-xs text-slate-400">Durante la toma de decisiones</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">↑</div>
-              <p className="font-semibold mb-1">Velocidad percibida</p>
-              <p className="text-xs text-slate-400">Aumentó drásticamente</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 14. Siguientes pasos & 15. Learning */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl">
-          
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 p-8 md:p-12 rounded-3xl border border-indigo-100 dark:border-indigo-800/50 mb-16 text-center">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-4">Aprendizaje clave</h3>
-            <p className="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed">
-              "En sistemas complejos, el valor no viene de automatizar decisiones, sino de estructurar información confiable para habilitar mejores decisiones, más rápido."
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Siguientes pasos</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Mejorar la explicabilidad del matching</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Mejorar la visibilidad de roles abiertos</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Integrar candidatos externos</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="text-sm font-medium">Medir impacto en producción</span>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
-      {/* 16. Navigation */}
-      <section className="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
-        <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-6">
-          <Link to="/">
+      <section className="border-t border-slate-200 bg-slate-50 px-6 py-12 dark:border-slate-800 dark:bg-slate-950">
+        <div className="container mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 sm:flex-row">
+          <Link to="/#work">
             <Button variant="outline" className="gap-2">
-              <ArrowLeft className="w-4 h-4" /> Volver al portafolio
+              <ArrowLeft className="h-4 w-4" /> Volver a proyectos
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="/case-study/staffing-system">
             <Button className="gap-2">
-              Siguiente caso de estudio <ArrowRight className="w-4 h-4" />
+              Siguiente caso: Staffing <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>
       </section>
-      
     </div>
   );
 }

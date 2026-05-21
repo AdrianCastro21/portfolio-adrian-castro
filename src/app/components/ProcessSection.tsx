@@ -26,7 +26,7 @@ export function ProcessSection() {
     {
       icon: <Rocket className="w-6 h-6" />,
       title: "Entrega",
-      description: "Colaborar con ingeniería para asegurar una implementación fluida."
+      description: "Colaborar con desarrollo para asegurar una implementación fluida."
     }
   ];
 

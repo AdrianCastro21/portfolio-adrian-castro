@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { Button } from "./Button";
 import { ArrowRight, Download } from "lucide-react";
-import profileImg from "figma:asset/a9fb454fb8fbd60f1e9e13b8d90af68716ddd6d1.png";
+import profileImg from "../../assets/Adrian_Profilepic.JPG";
+import cvPdf from "../../assets/CV_Adrian_Castro_ProductDesigner_2026.pdf";
 
 export function HeroSection() {
   return (
@@ -20,7 +20,7 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-900 dark:text-slate-100 mb-6">
               <span className="w-2 h-2 rounded-full bg-indigo-500" />
-              Senior Product Designer en Ciudad de México
+              Product Designer en Ciudad de México
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
@@ -51,12 +51,19 @@ export function HeroSection() {
             </ul>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2">
+              <a
+                href="/#work"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-slate-900 px-8 text-lg font-medium text-white transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-200"
+              >
                 Ver casos de estudio <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="lg" className="gap-2">
+              </a>
+              <a
+                href={cvPdf}
+                download="CV_Adrian_Castro_ProductDesigner_2026.pdf"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-slate-200 px-8 text-lg font-medium transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:border-slate-800 dark:hover:bg-slate-800 dark:hover:text-slate-50"
+              >
                 Descargar CV <Download className="w-4 h-4" />
-              </Button>
+              </a>
             </div>
           </motion.div>
           
@@ -81,11 +88,11 @@ export function HeroSection() {
                 className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-4"
               >
                 <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">✨</span>
+                  <span className="text-xl">🔍</span>
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">Explorando actualmente</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Sistemas de diseño impulsados por IA</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Proceso de diseño impulsado por IA</p>
                 </div>
               </motion.div>
             </div>

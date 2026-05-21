@@ -1,36 +1,36 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import imgProject1 from "figma:asset/25bbf741622842b7d474ce34ff39d9127ba13da3.png";
-import imgProject2 from "figma:asset/44587e6a8589f21f0960652efd5c8f32bc55e408.png";
-import imgProject3 from "figma:asset/abe65d4d8e3d3ae9eda828545ed2812f6b855410.png";
+import imgProject1 from "../../assets/Mockup_staffing.png";
+import imgProject2 from "../../assets/Mockup_keobra.png";
+import imgProject3 from "../../assets/Mockup_meditacion.png";
 
 export function CaseStudiesSection() {
   const projects = [
   {
     title: "Sistema de gestión de RR. HH.",
     description: "Transformé procesos manuales en Excel en una plataforma automatizada...",
-    metrics: ["40% de tiempo ahorrado", "Automatización de procesos", "SaaS empresarial"],
+    metrics: ["Automatización de procesos", "SaaS empresarial",],
     image: imgProject1,
     href: "/case-study/staffing-system",
   },
   {
-    title: "Innovación en construcción",
-    description: "Lideré Design Sprints para descubrir nuevas oportunidades de negocio...",
-    metrics: ["5+ Design Sprints", "Alineación de stakeholders", "Prototipado rápido"],
+    title: "Arqui Keobra",
+    description: "Cree un producto que conecta Arquitectos con personas que construyen...",
+    metrics: ["Ux UI Design", "Construcción"],
     image: imgProject2,
     href: "/case-study/construction-innovation",
   },
   {
-    title: "Plataforma de aprendizaje EdTech",
-    description: "Rediseñé la experiencia principal de aprendizaje...",
-    metrics: ["+25% de engagement", "Gamificación", "Investigación UX"],
+    title: "Florecer app de meditación",
+    description: "Diseñé una experiencia guiada para que principiantes integren la meditación a su rutina diaria...",
+    metrics: ["Gamificación", "Meditación"],
     image: imgProject3,
     href: "/case-study/meditate-app",
   }
 ];
 
   return (
-    <section className="py-24">
+    <section id="work" className="py-24 scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-end mb-16">
           <div>
@@ -52,15 +52,7 @@ export function CaseStudiesSection() {
               Una mirada a cómo resuelvo problemas complejos a través del diseño.
             </motion.p>
           </div>
-          <motion.a 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            href="#" 
-            className="hidden md:flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:gap-3 transition-all"
-          >
-            Ver todos los proyectos <ArrowUpRight className="w-5 h-5" />
-          </motion.a>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import { Button } from "../components/Button";
+import { SystemImageCarousel, type SystemImageSlide } from "../components/SystemImageCarousel";
 
 const autoconstructorRequirements = [
   "Elegir si requiere el servicio en línea o presencial.",
@@ -58,6 +59,69 @@ const siteArchitecture = [
   "Formulario de asesoría",
   "Cupones",
   "Crear cupón",
+];
+
+// Para usar capturas reales, importa tus imagenes desde src/assets y agrega image: nombreImportado en cada slide.
+const keobraAutoconstructorSlides: SystemImageSlide[] = [
+  {
+    eyebrow: "Flujo móvil",
+    title: "Selección de modalidad",
+    description: "Pantallas para elegir si la asesoría será presencial o en línea y definir el tipo de inmueble.",
+    orientation: "mobile",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Datos del proyecto",
+    description: "Captura guiada del motivo de la asesoría, ubicación, contacto y detalles necesarios para cotizar.",
+    orientation: "mobile",
+    accent: "rose",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Cotización y pago",
+    description: "Resumen de costo, aplicación de cupones, pago en línea y confirmación de la solicitud.",
+    orientation: "mobile",
+    accent: "slate",
+  },
+  {
+    eyebrow: "Flujo móvil",
+    title: "Agenda de visita",
+    description: "Selección de fecha, hora y visualización de la asesoría confirmada con el arquitecto asignado.",
+    orientation: "mobile",
+    accent: "lime",
+  },
+];
+
+const keobraArchitectSlides: SystemImageSlide[] = [
+  {
+    eyebrow: "Tablero web",
+    title: "Listado de asesorías",
+    description: "Vista para revisar solicitudes, estatus, modalidad, fechas y acciones rápidas del arquitecto.",
+    orientation: "desktop",
+    accent: "indigo",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Detalle de solicitud",
+    description: "Información del cliente, ubicación, pago, motivo de la asesoría y estado operativo de la visita.",
+    orientation: "desktop",
+    accent: "slate",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Formulario de asistencia",
+    description: "Registro de evidencia, validaciones técnicas, conclusiones y firma para generar el reporte de asesoría.",
+    orientation: "desktop",
+    accent: "rose",
+  },
+  {
+    eyebrow: "Tablero web",
+    title: "Cupones y administración",
+    description: "Espacio para gestionar descuentos, revisar solicitudes y mantener el control operativo del servicio.",
+    orientation: "desktop",
+    accent: "lime",
+  },
 ];
 
 function PhonePlaceholder({ title, step }: { title: string; step: string }) {
@@ -130,8 +194,8 @@ export function CaseStudyKeobra() {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
       <section className="border-b border-slate-200 bg-white px-6 pb-16 pt-24 dark:border-slate-800 dark:bg-slate-900 md:pb-20 md:pt-32">
         <div className="container mx-auto max-w-5xl">
-          <Link to="/" className="mb-8 inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Volver al portafolio
+          <Link to="/#work" className="mb-8 inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Volver a proyectos
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -316,12 +380,7 @@ export function CaseStudyKeobra() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <PhonePlaceholder title="Modalidad" step="1" />
-            <PhonePlaceholder title="Lugar" step="2" />
-            <PhonePlaceholder title="Proyecto" step="3" />
-            <PhonePlaceholder title="Datos y cotización" step="4" />
-          </div>
+          <SystemImageCarousel slides={keobraAutoconstructorSlides} />
 
           <div className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
@@ -370,6 +429,7 @@ export function CaseStudyKeobra() {
           </div>
 
           <div className="space-y-10">
+            <SystemImageCarousel slides={keobraArchitectSlides} />
             <DesktopPlaceholder title="Detalle de solicitud" description="Información del solicitante, modalidad, datos del pago, ubicación y acciones disponibles." />
             <DesktopPlaceholder title="Formulario de asistencia" description="Registro de ubicación, fotografías, validaciones técnicas, conclusiones y firma del cliente." />
           </div>
@@ -457,14 +517,14 @@ export function CaseStudyKeobra() {
 
       <section className="border-t border-slate-200 bg-slate-50 px-6 py-12 dark:border-slate-800 dark:bg-slate-950">
         <div className="container mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 sm:flex-row">
-          <Link to="/">
+          <Link to="/#work">
             <Button variant="outline" className="gap-2">
-              <ArrowLeft className="h-4 w-4" /> Volver al portafolio
+              <ArrowLeft className="h-4 w-4" /> Volver a proyectos
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="/case-study/meditate-app">
             <Button className="gap-2">
-              Siguiente caso de estudio <ArrowRight className="h-4 w-4" />
+              Siguiente caso: Florecer <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>
