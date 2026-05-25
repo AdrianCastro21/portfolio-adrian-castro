@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, Linkedin, ArrowRight } from "lucide-react";
+import { MessageCircle, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "./Button";
 
 export function AboutCtaSection() {
@@ -51,10 +51,14 @@ export function AboutCtaSection() {
                 size="lg"
                 className="w-full sm:w-auto gap-2 bg-white text-slate-900 hover:bg-slate-200"
                 onClick={() => {
-                  window.location.href = "mailto:acastro.didg@gmail.com";
+                  window.open(
+                    "https://wa.me/5551016150?text=Hola%2C%20vi%20tu%20CV%20y%20me%20gustar%C3%ADa%20platicar%20contigo%20para%20una%20oportunidad%20laboral.",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
                 }}
               >
-                <Mail className="w-5 h-5" /> Contáctame
+                <MessageCircle className="w-5 h-5" /> Contáctame
               </Button>
               <div className="flex items-center gap-6">
                 <a
