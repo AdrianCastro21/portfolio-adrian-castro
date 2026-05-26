@@ -1,46 +1,82 @@
 import { motion } from "motion/react";
 import { Briefcase, Code } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function ExperienceSkillsSection() {
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      experience: "Experiencia",
+      specialty: "Especialidad",
+      experiences: [
+        {
+          role: "Product Designer",
+          impact: "Lideré el proceso de diseño end-to-end para los sistemas de gestión de recursos humanos que permitió digitalizar procesos manuales basados en Excel, redujo tiempos de tarea y mejoró la eficiencia operativa mediante una colaboración cercana con líderes de tecnología y stakeholders."
+        },
+        {
+          role: "Product Designer",
+          impact: "Diseñé y evolucioné productos digitales para la industria de la construcción, liderando procesos de innovación y Design Sprints que generaron nuevas oportunidades de negocio, además de gestionar y mentorear talento UX/UI junior."
+        },
+        {
+          role: "Multimedia Designer",
+          impact: "Diseñé productos digitales educativos centrados en la experiencia de usuario, colaborando con diseñadores instruccionales para crear experiencias de aprendizaje intuitivas mediante diseño de interacción, animación e ilustración."
+        }
+      ],
+      skills: [
+        { title: "Producto y estrategia", skills: ["Estrategia de producto", "Design Sprints", "Metodologías ágiles", "KPI oriented", "Roadmapping"] },
+        { title: "Diseño UX", skills: ["Investigación con usuarios", "Arquitectura de información", "Wireframing", "Pruebas de usabilidad", "Journey Mapping"] },
+        { title: "Diseño UI", skills: ["Sistemas de diseño", "Diseño de interacción", "Prototipado", "Diseño visual", "Accesibilidad"] },
+        { title: "Herramientas y tecnología", skills: ["Figma", "Miro", "HTML/CSS", "Prompts de IA (Figma Make, ChatGPT, Codex)"] },
+      ],
+    },
+    en: {
+      experience: "Experience",
+      specialty: "Specialty",
+      experiences: [
+        {
+          role: "Product Designer",
+          impact: "Led the end-to-end design process for human resource management systems, digitizing manual Excel-based workflows, reducing task time, and improving operational efficiency through close collaboration with technology leaders and stakeholders."
+        },
+        {
+          role: "Product Designer",
+          impact: "Designed and evolved digital products for the construction industry, leading innovation processes and Design Sprints that created new business opportunities, while managing and mentoring junior UX/UI talent."
+        },
+        {
+          role: "Multimedia Designer",
+          impact: "Designed educational digital products centered on user experience, collaborating with instructional designers to create intuitive learning experiences through interaction design, animation, and illustration."
+        }
+      ],
+      skills: [
+        { title: "Product and strategy", skills: ["Product strategy", "Design Sprints", "Agile methodologies", "KPI oriented", "Roadmapping"] },
+        { title: "UX Design", skills: ["User research", "Information architecture", "Wireframing", "Usability testing", "Journey Mapping"] },
+        { title: "UI Design", skills: ["Design systems", "Interaction design", "Prototyping", "Visual design", "Accessibility"] },
+        { title: "Tools and technology", skills: ["Figma", "Miro", "HTML/CSS", "AI prompting (Figma Make, ChatGPT, Codex)"] },
+      ],
+    },
+  }[language];
+
   const experiences = [
     {
-      role: "Product Designer",
+      role: copy.experiences[0].role,
       company: "IDS",
       period: "2024 — 2026",
-      impact: "Lideré el proceso de diseño end-to-end para los sistemas de gestión de recursos humanos que permitió digitalizar procesos manuales basados en Excel, redujo tiempos de tarea y mejoró la eficiencia operativa mediante una colaboración cercana con líderes de tecnología y stakeholders."
+      impact: copy.experiences[0].impact,
     },
     {
-      role: "Product Designer",
+      role: copy.experiences[1].role,
       company: "Keobra / Cemex",
       period: "2021 — 2024",
-      impact: "Diseñé y evolucioné productos digitales para la industria de la construcción, liderando procesos de innovación y Design Sprints que generaron nuevas oportunidades de negocio, además de gestionar y mentorear talento UX/UI junior."
+      impact: copy.experiences[1].impact,
     },
     {
-      role: "Multimedia Designer",
+      role: copy.experiences[2].role,
       company: "kls",
       period: "2021",
-      impact: "Diseñé productos digitales educativos centrados en la experiencia de usuario, colaborando con diseñadores instruccionales para crear experiencias de aprendizaje intuitivas mediante diseño de interacción, animación e ilustración."
+      impact: copy.experiences[2].impact,
     }
   ];
 
-  const skillCategories = [
-    {
-      title: "Producto y estrategia",
-      skills: ["Estrategia de producto", "Design Sprints", "Metodologías ágiles", "KPI oriented", "Roadmapping"]
-    },
-    {
-      title: "Diseño UX",
-      skills: ["Investigación con usuarios", "Arquitectura de información", "Wireframing", "Pruebas de usabilidad", "Journey Mapping"]
-    },
-    {
-      title: "Diseño UI",
-      skills: ["Sistemas de diseño", "Diseño de interacción", "Prototipado", "Diseño visual", "Accesibilidad"]
-    },
-    {
-      title: "Herramientas y tecnología",
-      skills: ["Figma", "Miro", "HTML/CSS", "Prompts de IA (Figma Make, ChatGPT, Codex)"]
-    }
-  ];
+  const skillCategories = copy.skills;
 
   return (
     <section className="py-24 bg-white dark:bg-slate-950">
@@ -53,7 +89,7 @@ export function ExperienceSkillsSection() {
               <div className="p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-2xl text-indigo-600 dark:text-indigo-400">
                 <Briefcase className="w-6 h-6" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Experiencia</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{copy.experience}</h2>
             </div>
             
             <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 dark:before:via-slate-800 before:to-transparent">
@@ -90,7 +126,7 @@ export function ExperienceSkillsSection() {
               <div className="p-3 bg-rose-50 dark:bg-rose-900/30 rounded-2xl text-rose-600 dark:text-rose-400">
                 <Code className="w-6 h-6" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Especialidad</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{copy.specialty}</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

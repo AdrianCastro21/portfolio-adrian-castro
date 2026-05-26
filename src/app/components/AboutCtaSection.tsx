@@ -1,8 +1,31 @@
 import { motion } from "motion/react";
 import { MessageCircle, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "./Button";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function AboutCtaSection() {
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      aboutTitle: "Sobre mí",
+      about: "Más allá de los pixeles, me apasiona la intersección entre diseño, tecnología y comportamiento humano. Disfruto la innovación y la experimentación, explorando constantemente cómo las tecnologías emergentes, especialmente las herramientas y flujos de diseño impulsados por IA, pueden ampliar la creatividad y resolver problemas complejos. Cuando no estoy diseñando, probablemente estoy aprendiendo una nueva herramienta o haciendo algo de música.",
+      headingStart: "Construyamos algo",
+      headingHighlight: "grandioso juntos.",
+      description: "Actualmente estoy abierto a nuevas oportunidades y proyectos freelance interesantes. Conectemos para conversar cómo puedo aportar a tu equipo.",
+      cta: "Contáctame",
+      footer: "Diseñado con intención.",
+    },
+    en: {
+      aboutTitle: "About me",
+      about: "Beyond pixels, I am passionate about the intersection of design, technology, and human behavior. I enjoy innovation and experimentation, constantly exploring how emerging technologies, especially AI-assisted design tools and workflows, can expand creativity and solve complex problems. When I am not designing, I am probably learning a new tool or making music.",
+      headingStart: "Let's build something",
+      headingHighlight: "great together.",
+      description: "I am currently open to new opportunities and interesting freelance projects. Let's connect and talk about how I can contribute to your team.",
+      cta: "Contact me",
+      footer: "Designed with intention.",
+    },
+  }[language];
+
   return (
     <section className="relative py-24 overflow-hidden bg-slate-950 text-white">
       {/* Psychedelic gradient mesh background */}
@@ -21,13 +44,9 @@ export function AboutCtaSection() {
             viewport={{ once: true }}
             className="mb-20 bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl text-left"
           >
-            <h2 className="text-2xl font-bold mb-4 text-white">Sobre mí</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">{copy.aboutTitle}</h2>
             <p className="text-lg text-slate-300 leading-relaxed">
-              Más allá de los pixeles, me apasiona la intersección entre diseño, tecnología y comportamiento humano.
-              Disfruto la innovación y la experimentación, explorando constantemente cómo las tecnologías emergentes,
-              especialmente las herramientas y flujos de diseño impulsados por IA, pueden ampliar la creatividad y resolver
-              problemas complejos. Cuando no estoy diseñando, probablemente estoy aprendiendo una nueva herramienta
-              o haciendo algo de música.
+              {copy.about}
             </p>
           </motion.div>
 
@@ -38,12 +57,11 @@ export function AboutCtaSection() {
             transition={{ delay: 0.2 }}
           >
             <h2 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight">
-              Construyamos algo <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">grandioso juntos.</span>
+              {copy.headingStart} <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">{copy.headingHighlight}</span>
             </h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-              Actualmente estoy abierto a nuevas oportunidades y proyectos freelance interesantes.
-              Conectemos para conversar cómo puedo aportar a tu equipo.
+              {copy.description}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -58,7 +76,7 @@ export function AboutCtaSection() {
                   );
                 }}
               >
-                <MessageCircle className="w-5 h-5" /> Contáctame
+                <MessageCircle className="w-5 h-5" /> {copy.cta}
               </Button>
               <div className="flex items-center gap-6">
                 <a
@@ -80,7 +98,7 @@ export function AboutCtaSection() {
       
       {/* Footer */}
       <div className="absolute bottom-6 w-full text-center text-slate-500 text-sm z-10">
-        <p>© {new Date().getFullYear()} • Diseñado con intención. 🙂</p>
+        <p>© {new Date().getFullYear()} • {copy.footer}</p>
       </div>
     </section>
   );

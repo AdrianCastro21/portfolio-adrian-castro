@@ -1,32 +1,59 @@
 import { motion } from "motion/react";
 import { Search, PenTool, Layout, CheckCircle2, Rocket } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function ProcessSection() {
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      title: "Cómo trabajo",
+      description: "Un enfoque estructurado y flexible para construir productos que importan.",
+      steps: [
+        ["Descubrimiento", "Entender el problema, las necesidades de usuario y los objetivos de negocio."],
+        ["Definición", "Sintetizar investigación en hallazgos accionables y requerimientos claros."],
+        ["Diseño", "Prototipado iterativo, desde wireframes de baja fidelidad hasta interfaces pulidas."],
+        ["Validación", "Probar con usuarios reales para asegurar que la solución responde al objetivo."],
+        ["Entrega", "Colaborar con desarrollo para asegurar una implementación fluida."],
+      ],
+    },
+    en: {
+      title: "How I work",
+      description: "A structured and flexible approach to building products that matter.",
+      steps: [
+        ["Discovery", "Understand the problem, user needs, and business goals."],
+        ["Definition", "Synthesize research into actionable insights and clear requirements."],
+        ["Design", "Iterative prototyping, from low-fidelity wireframes to polished interfaces."],
+        ["Validation", "Test with real users to make sure the solution supports the goal."],
+        ["Delivery", "Collaborate with engineering to support a smooth implementation."],
+      ],
+    },
+  }[language];
+
   const steps = [
     {
       icon: <Search className="w-6 h-6" />,
-      title: "Descubrimiento",
-      description: "Entender el problema, las necesidades de usuario y los objetivos de negocio."
+      title: copy.steps[0][0],
+      description: copy.steps[0][1],
     },
     {
       icon: <PenTool className="w-6 h-6" />,
-      title: "Definición",
-      description: "Sintetizar investigación en hallazgos accionables y requerimientos claros."
+      title: copy.steps[1][0],
+      description: copy.steps[1][1],
     },
     {
       icon: <Layout className="w-6 h-6" />,
-      title: "Diseño",
-      description: "Prototipado iterativo, desde wireframes de baja fidelidad hasta interfaces pulidas."
+      title: copy.steps[2][0],
+      description: copy.steps[2][1],
     },
     {
       icon: <CheckCircle2 className="w-6 h-6" />,
-      title: "Validación",
-      description: "Probar con usuarios reales para asegurar que la solución responde al objetivo."
+      title: copy.steps[3][0],
+      description: copy.steps[3][1],
     },
     {
       icon: <Rocket className="w-6 h-6" />,
-      title: "Entrega",
-      description: "Colaborar con desarrollo para asegurar una implementación fluida."
+      title: copy.steps[4][0],
+      description: copy.steps[4][1],
     }
   ];
 
@@ -44,7 +71,7 @@ export function ProcessSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Cómo trabajo
+            {copy.title}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +80,7 @@ export function ProcessSection() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg max-w-2xl mx-auto"
           >
-            Un enfoque estructurado y flexible para construir productos que importan.
+            {copy.description}
           </motion.p>
         </div>
 

@@ -3,27 +3,70 @@ import { ArrowUpRight } from "lucide-react";
 import imgProject1 from "../../assets/Mockup_staffing.png";
 import imgProject2 from "../../assets/Mockup_keobra.png";
 import imgProject3 from "../../assets/Mockup_meditacion.png";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function CaseStudiesSection() {
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      title: "Proyectos seleccionados",
+      description: "Una mirada a cómo resuelvo problemas complejos a través del diseño.",
+      viewCase: "Ver caso de estudio",
+      projects: [
+        {
+          title: "Sistema de gestión de RR. HH.",
+          description: "Transformé procesos manuales en Excel en una plataforma automatizada...",
+          metrics: ["Automatización de procesos", "SaaS empresarial"],
+        },
+        {
+          title: "Arqui Keobra",
+          description: "Cree un producto que conecta Arquitectos con personas que construyen...",
+          metrics: ["Ux UI Design", "Construcción"],
+        },
+        {
+          title: "Florecer app de meditación",
+          description: "Diseñé una experiencia guiada para que principiantes integren la meditación a su rutina diaria...",
+          metrics: ["Gamificación", "Meditación"],
+        }
+      ],
+    },
+    en: {
+      title: "Selected projects",
+      description: "A look at how I solve complex problems through design.",
+      viewCase: "View case study",
+      projects: [
+        {
+          title: "HR staffing management system",
+          description: "I transformed manual Excel-based workflows into an automated platform...",
+          metrics: ["Process automation", "Enterprise SaaS"],
+        },
+        {
+          title: "Arqui Keobra",
+          description: "I created a product that connects architects with people building their homes...",
+          metrics: ["UX/UI Design", "Construction"],
+        },
+        {
+          title: "Florecer meditation app",
+          description: "I designed a guided experience to help beginners bring meditation into their daily routine...",
+          metrics: ["Gamification", "Meditation"],
+        }
+      ],
+    },
+  }[language];
+
   const projects = [
   {
-    title: "Sistema de gestión de RR. HH.",
-    description: "Transformé procesos manuales en Excel en una plataforma automatizada...",
-    metrics: ["Automatización de procesos", "SaaS empresarial",],
+    ...copy.projects[0],
     image: imgProject1,
     href: "/case-study/staffing-system",
   },
   {
-    title: "Arqui Keobra",
-    description: "Cree un producto que conecta Arquitectos con personas que construyen...",
-    metrics: ["Ux UI Design", "Construcción"],
+    ...copy.projects[1],
     image: imgProject2,
     href: "/case-study/construction-innovation",
   },
   {
-    title: "Florecer app de meditación",
-    description: "Diseñé una experiencia guiada para que principiantes integren la meditación a su rutina diaria...",
-    metrics: ["Gamificación", "Meditación"],
+    ...copy.projects[2],
     image: imgProject3,
     href: "/case-study/meditate-app",
   }
@@ -40,7 +83,7 @@ export function CaseStudiesSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4"
             >
-              Proyectos seleccionados
+              {copy.title}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -49,7 +92,7 @@ export function CaseStudiesSection() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-600 dark:text-slate-400 max-w-xl"
             >
-              Una mirada a cómo resuelvo problemas complejos a través del diseño.
+              {copy.description}
             </motion.p>
           </div>
           
@@ -92,7 +135,7 @@ export function CaseStudiesSection() {
               </p>
               
               <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white mt-auto group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
-                Ver caso de estudio
+                {copy.viewCase}
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
             </motion.a>

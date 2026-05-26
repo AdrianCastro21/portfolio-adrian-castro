@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export type SystemImageSlide = {
   title: string;
@@ -95,6 +96,23 @@ function SampleMobile({ accent = "lime" }: { accent?: SystemImageSlide["accent"]
 }
 
 export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) {
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      sampleImage: "Imagen de muestra",
+      previous: "Ver imagen anterior",
+      next: "Ver imagen siguiente",
+      replace: "Reemplazar por captura final",
+      view: "Ver",
+    },
+    en: {
+      sampleImage: "Sample image",
+      previous: "View previous image",
+      next: "View next image",
+      replace: "Replace with final screenshot",
+      view: "View",
+    },
+  }[language];
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSlide = slides[activeIndex];
 
@@ -111,7 +129,7 @@ export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) 
       <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            {activeSlide.eyebrow || "Imagen de muestra"} {activeIndex + 1}/{slides.length}
+            {activeSlide.eyebrow || copy.sampleImage} {activeIndex + 1}/{slides.length}
           </p>
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{activeSlide.title}</h3>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">{activeSlide.description}</p>
@@ -121,7 +139,7 @@ export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) 
             type="button"
             onClick={goToPrevious}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-600 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-indigo-950"
-            aria-label="Ver imagen anterior"
+            aria-label={copy.previous}
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -129,7 +147,7 @@ export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) 
             type="button"
             onClick={goToNext}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white transition-colors hover:bg-indigo-600 dark:bg-white dark:text-slate-900 dark:hover:bg-indigo-200"
-            aria-label="Ver imagen siguiente"
+            aria-label={copy.next}
           >
             <ChevronRight className="h-5 w-5" />
           </button>
@@ -150,7 +168,7 @@ export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) 
             {activeSlide.orientation === "mobile" ? <SampleMobile accent={activeSlide.accent} /> : <SampleDesktop accent={activeSlide.accent} />}
             <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm backdrop-blur dark:bg-slate-900/90 dark:text-slate-300">
               <ImageIcon className="h-4 w-4" />
-              Reemplazar por captura final
+              {copy.replace}
             </div>
           </>
         )}
@@ -163,7 +181,7 @@ export function SystemImageCarousel({ slides }: { slides: SystemImageSlide[] }) 
             type="button"
             onClick={() => setActiveIndex(index)}
             className={`h-2.5 rounded-full transition-all ${index === activeIndex ? "w-8 bg-indigo-600" : "w-2.5 bg-slate-300 dark:bg-slate-700"}`}
-            aria-label={`Ver ${slide.title}`}
+            aria-label={`${copy.view} ${slide.title}`}
           />
         ))}
       </div>
